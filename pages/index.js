@@ -8,7 +8,7 @@ const Index = () => (
         </Link>
         <p>Hello World</p>
         <style jsx>
-        {`
+            {`
             .link {
                 color: #0000ff;
                 text-decoration: underline;
@@ -18,7 +18,7 @@ const Index = () => (
         </style>
 
         <style jsx global>
-        {`
+            {`
             body {
                 background: #212121;
                 color: #fefefe;
