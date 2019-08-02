@@ -1,23 +1,30 @@
+import React from 'react';
 import Link from 'next/link';
 
 const Index = () => (
     <div>
         <Link href="/about">
-            <a title="About Page">About</a>
+            <p className="link" title="About Page">About</p>
         </Link>
         <p>Hello World</p>
-        <style jsx>{`
-            a {
+        <style jsx>
+        {`
+            .link {
                 color: #0000ff;
+                text-decoration: underline;
+                cursor: pointer;
             }
-        `}</style>
+        `}
+        </style>
 
-        <style jsx global>{`
+        <style jsx global>
+        {`
             body {
                 background: #212121;
                 color: #fefefe;
             }
-        `}</style>
+        `}
+        </style>
     </div>
 );
 
