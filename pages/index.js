@@ -13,7 +13,7 @@ const Index = () => (
                 color: #0000ff;
                 text-decoration: underline;
                 cursor: pointer;
-            }
+                }
         `}
         </style>
 
