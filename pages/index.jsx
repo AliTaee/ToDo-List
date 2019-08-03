@@ -12,6 +12,8 @@ function Index() {
                     body {
                         background: #212121;
                         color: #fefefe;
+                        padding: 0;
+                        margin: 0;
                     }
                 `}
                 </style>
