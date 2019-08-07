@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useCounterContext } from '../context/store';
 
 // Pages
-import CreateNotes from './CreateNotes';
+import CreateNotes from './Create';
 
 // Components
 import Menu from '../components/navigation/Menu';
