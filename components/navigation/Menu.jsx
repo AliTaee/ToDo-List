@@ -1,7 +1,12 @@
 import React from 'react';
+import Link from 'next/link';
 
 const Menu = () => (
-    <p>Menu</p>
+    <div>
+        <h2>Menu</h2>
+        <Link href="/">Home</Link>
+        <Link href="/Create">Create</Link>
+    </div>
 );
 
 export default Menu;
