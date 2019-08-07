@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { useCounterContext } from '../context/store';
 import HelloWorld from '../components/HelloWorld';
+import CreateNotes from './CreateNotes';
 import '../styles/style.scss';
 
 function Index() {
@@ -20,6 +21,7 @@ function Index() {
             </Head>
             <div>
                 <HelloWorld />
+                <CreateNotes />
             </div>
         </useCounterContext.Provider>
     );
