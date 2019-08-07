@@ -17,6 +17,7 @@
   "author": "Ali Taee",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^4.3.1",
     "constate": "^1.2.0",
     "next": "^9.0.3",
     "react": "^16.8.6",
