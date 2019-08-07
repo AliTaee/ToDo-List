@@ -1,7 +1,16 @@
 import React from 'react';
 import Head from 'next/head';
 import { useCounterContext } from '../context/store';
+
+// Pages
 import CreateNotes from './CreateNotes';
+
+// Components
+import Menu from '../components/navigation/Menu';
+
+// Styles
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 import '../styles/style.scss';
 
 function Index() {
@@ -18,9 +27,18 @@ function Index() {
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
                 <script type="text/javascript" src="/static/pwa_script.js" />
             </Head>
-            <div>
-                <CreateNotes />
-            </div>
+            <Container>
+                <main>
+                    <Grid container spacing={0}>
+                        <Grid item xs={2}>
+                            <Menu />
+                        </Grid>
+                        <Grid className="main" item xs={10}>
+                            <CreateNotes />
+                        </Grid>
+                    </Grid>
+                </main>
+            </Container>
         </useCounterContext.Provider>
     );
 }
