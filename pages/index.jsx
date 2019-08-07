@@ -1,7 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
 import { useCounterContext } from '../context/store';
-import HelloWorld from '../components/HelloWorld';
 import CreateNotes from './CreateNotes';
 import '../styles/style.scss';
 
@@ -20,7 +19,6 @@ function Index() {
                 <script type="text/javascript" src="/static/pwa_script.js" />
             </Head>
             <div>
-                <HelloWorld />
                 <CreateNotes />
             </div>
         </useCounterContext.Provider>
