@@ -1,7 +1,15 @@
-$main_color: #00c896;
+$main_color: #fefefe;
 $main_background: #282828;
 $active_main: #1f1f1f;
 
+/*
+* CSS Reset and Normalize
+*/
+@import '../node_modules/css-reset-and-normalize/scss/reset-and-normalize';
+
+/*
+* Css reset & font family
+*/
 body {
     font-family: roboto, Arial, Helvetica, sans-serif;
     background: $main_background;
@@ -10,7 +18,24 @@ body {
     margin: 0;
 }
 
+/*
+* Active main
+*/
 .main {
     background: $active_main;
     height: 100vh;
+}
+
+/*
+* Navigation
+*/
+nav {
+    ul {
+        list-style: none;
+    }
+
+    .nav-item a {
+        color: $main_color;
+        text-decoration: none;
+    }
 }
