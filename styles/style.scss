@@ -1,3 +1,4 @@
+$font_family: roboto, Arial, Helvetica, sans-serif;
 $main_color: #fefefe;
 $main_background: #282828;
 $active_main: #1f1f1f;
@@ -11,12 +12,39 @@ $active_main: #1f1f1f;
 * Css reset & font family
 */
 body {
-    font-family: roboto, Arial, Helvetica, sans-serif;
+    font-family: $font_family;
     background: $main_background;
     color: $main_color;
     padding: 0;
     margin: 0;
 }
+
+/*
+* Typography
+*/
+p {margin-bottom: 1.25em;}
+
+h1, h2, h3, h4, h5 {
+  margin: 2.75rem 0 1rem;
+  font-family: $font_family;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 3.052em;
+}
+
+h2 {font-size: 2.441em;}
+
+h3 {font-size: 1.953em;}
+
+h4 {font-size: 1.563em;}
+
+h5 {font-size: 1.25em;}
+
+small, .text_small {font-size: 0.8em;}
 
 /*
 * Active main
