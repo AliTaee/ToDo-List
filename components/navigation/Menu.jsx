@@ -16,7 +16,7 @@ const Menu = () => (
                 <li className="nav-item">
                     <Link href="/Create">
                         <a>
-                            Create
+                            Create Note
                         </a>
                     </Link>
                 </li>
