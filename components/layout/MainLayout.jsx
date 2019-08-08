@@ -1,10 +1,12 @@
 import React from 'react';
 import Head from 'next/head';
-import { useCounterContext } from '../../context/store';
 
 // Styles
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+
+// Store data
+import { useCounterContext } from '../../context/store';
 
 // Components
 import Menu from '../navigation/Menu';
