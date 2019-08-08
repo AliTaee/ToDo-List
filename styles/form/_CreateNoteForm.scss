@@ -1,0 +1,18 @@
+/*
+* Create Note Form
+*/
+
+#create-note {
+  input, label {
+    color: $main_color;
+  }
+  fieldset {
+    border: 1px solid $main_color;
+  }
+}
+
+#content-task {
+  display: block;
+  margin: 7px 0 14px;
+  width: 100%;
+}
