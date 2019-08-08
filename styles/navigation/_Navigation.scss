@@ -1,0 +1,13 @@
+/*
+* Navigation
+*/
+nav {
+    ul {
+        list-style: none;
+    }
+
+    .nav-item a {
+        color: $main_color;
+        text-decoration: none;
+    }
+}

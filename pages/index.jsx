@@ -6,7 +6,7 @@ import Layout from '../components/layout/MainLayout';
 function Index() {
     return (
         <Layout>
-            <p>Home page</p>
+            <h2>Home</h2>
         </Layout>
     );
 }
