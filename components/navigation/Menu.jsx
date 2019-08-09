@@ -19,7 +19,7 @@ const Menu = () => (
                     </Link>
                 </li>
                 <li className="nav-item">
-                    <Link href="/About">
+                    <Link href="/about">
                         <a>
                             <InfoIcon />
                             <span>About Todo List</span>
