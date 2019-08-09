@@ -5,9 +5,6 @@ import Head from 'next/head';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 
-// Store data
-import { useCounterContext } from '../../context/store';
-
 // Components
 import Menu from '../navigation/Menu';
 
@@ -15,7 +12,7 @@ import Menu from '../navigation/Menu';
 import '../../styles/style.scss';
 
 const MainLayout = props => (
-  <useCounterContext.Provider>
+  <main>
     <Head>
       <title>Todo list</title>
       <meta
@@ -29,18 +26,16 @@ const MainLayout = props => (
       <script type="text/javascript" src="/static/pwa_script.js" />
     </Head>
     <Container>
-      <main>
-        <Grid container spacing={0}>
-          <Grid item xs={2}>
-            <Menu />
-          </Grid>
-          <Grid className="main" item xs={10}>
-            {props.children}
-          </Grid>
+      <Grid container spacing={0}>
+        <Grid item xs={2}>
+          <Menu />
         </Grid>
-      </main>
+        <Grid className="main" item xs={10}>
+          {props.children}
+        </Grid>
+      </Grid>
     </Container>
-  </useCounterContext.Provider>
+  </main>
 );
 
 export default MainLayout;
