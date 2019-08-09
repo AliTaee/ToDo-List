@@ -27,10 +27,10 @@ const MainLayout = props => (
     </Head>
     <Container>
       <Grid container spacing={0}>
-        <Grid item xs={2}>
+        <Grid item xs={3}>
           <Menu />
         </Grid>
-        <Grid className="main" item xs={10}>
+        <Grid className="main" item xs={9}>
           {props.children}
         </Grid>
       </Grid>

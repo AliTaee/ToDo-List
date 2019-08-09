@@ -3,9 +3,6 @@ import TextField from '@material-ui/core/TextField';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import Button from '@material-ui/core/Button';
 
-// Components
-import Layout from '../components/layout/MainLayout';
-
 function CreateNotes() {
     let taskName;
     let taskContent;
@@ -26,7 +23,7 @@ function CreateNotes() {
     };
 
     return (
-        <Layout>
+        <section>
             <h2>Add Note</h2>
             <form id="create-note" noValidate autoComplete="off" onSubmit={handleSubmit}>
                 <TextField
@@ -53,7 +50,7 @@ function CreateNotes() {
                     Create Note
                 </Button>
             </form>
-        </Layout>
+        </section>
     );
 }
 
