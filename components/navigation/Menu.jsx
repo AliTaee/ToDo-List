@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 // Icons
 import HomeIcon from '@material-ui/icons/Home';
-import CreateIcon from '@material-ui/icons/Create';
+import InfoIcon from '@material-ui/icons/Info';
 
 const Menu = () => (
     <header>
@@ -19,10 +19,10 @@ const Menu = () => (
                     </Link>
                 </li>
                 <li className="nav-item">
-                    <Link href="/Create">
+                    <Link href="/About">
                         <a>
-                            <CreateIcon />
-                            <span>Create Note</span>
+                            <InfoIcon />
+                            <span>About Todo List</span>
                         </a>
                     </Link>
                 </li>
