@@ -19,10 +19,10 @@ function Index() {
             <Head />
             <Container>
                 <Grid container spacing={0}>
-                    <Grid item xs={3}>
+                    <Grid item xs={12} md={3}>
                         <Menu />
                     </Grid>
-                    <Grid className="main" item xs={9}>
+                    <Grid className="main" item xs={12} md={9}>
                         <CreateNote />
                     </Grid>
                 </Grid>
