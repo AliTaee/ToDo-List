@@ -4,7 +4,7 @@ import createUseContext from 'constate'; // State Context Object Creator
 
 // Custom hook that contains your state and actions
 function useCounter() {
-  const tasks = useState([{ taskName: 'Vue', taskContent: 'Learning Vue' }, { taskName: 'React', taskContent: 'Learning React' }]);
+  const [tasks] = useState(0);
   return { tasks };
 }
 
