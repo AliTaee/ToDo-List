@@ -9,8 +9,8 @@ const exampleInitialState = {
       content: 'Learning Vue.js'
     },
     {
-      name: 'Vue',
-      content: 'Learning Vue.js'
+      name: 'React',
+      content: 'Learning React.js'
     }
   ]
 };
