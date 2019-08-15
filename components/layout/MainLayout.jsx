@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Styles
 import Container from '@material-ui/core/Container';
@@ -11,20 +12,27 @@ import Head from './Head';
 // Styles
 import '../../styles/style.scss';
 
-const MainLayout = props => (
-  <main>
-    <Head />
-    <Container>
-      <Grid container spacing={0}>
-        <Grid item xs={12} md={3}>
-          <Menu />
+const MainLayout = props => {
+  const { children } = props;
+  return (
+    <main>
+      <Head />
+      <Container>
+        <Grid container spacing={0}>
+          <Grid item xs={12} md={3}>
+            <Menu />
+          </Grid>
+          <Grid className="main" item xs={12} md={9}>
+            {children}
+          </Grid>
         </Grid>
-        <Grid className="main" item xs={12} md={9}>
-          {props.children}
-        </Grid>
-      </Grid>
-    </Container>
-  </main>
-);
+      </Container>
+    </main>
+  );
+};
+
+MainLayout.propTypes = {
+  children: PropTypes.array,
+};
 
 export default MainLayout;
