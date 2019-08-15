@@ -15,7 +15,7 @@ class CreateNotes extends React.Component {
     super(props);
     this.state = {
       taskName: '',
-      taskContent: ''
+      taskContent: '',
     };
   }
 
@@ -24,7 +24,7 @@ class CreateNotes extends React.Component {
 
     const newTask = {
       task: this.state.taskName,
-      content: this.state.taskContent
+      content: this.state.taskContent,
     };
 
     this.props.addTask(newTask);
@@ -44,12 +44,7 @@ class CreateNotes extends React.Component {
     return (
       <section>
         <h2>Add Note</h2>
-        <form
-          id="create-note"
-          noValidate
-          autoComplete="off"
-          onSubmit={this.handleSubmit}
-        >
+        <form id="create-note" noValidate autoComplete="off" onSubmit={this.handleSubmit}>
           <TextField
             required
             fullWidth
@@ -81,11 +76,11 @@ class CreateNotes extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addTask: bindActionCreators(addTask, dispatch)
+    addTask: bindActionCreators(addTask, dispatch),
   };
 }
 
 export default connect(
   null,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(CreateNotes);

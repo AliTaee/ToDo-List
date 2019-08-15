@@ -39,5 +39,5 @@ class Index extends React.Component {
 
 export default connect(
   null,
-  null
+  null,
 )(Index);
