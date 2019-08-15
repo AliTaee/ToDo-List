@@ -3,11 +3,18 @@
 */
 
 #create-note {
-  input, label {
+  input,
+  label {
     color: $main_color;
   }
   fieldset {
     border: 1px solid $main_color;
+  }
+  .Mui-error fieldset {
+    border-color: #f44336;
+  }
+  .Mui-error {
+    color: #f44336;
   }
 }
 

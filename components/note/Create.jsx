@@ -16,11 +16,17 @@ class CreateNotes extends React.Component {
     this.state = {
       taskName: '',
       taskContent: '',
+      taskNameRequired: false,
     };
   }
 
   handleSubmit = event => {
     event.preventDefault();
+
+    if (this.state.taskName === '') {
+      this.setState({ taskNameRequired: true });
+      return;
+    }
 
     const newTask = {
       task: this.state.taskName,
@@ -56,6 +62,7 @@ class CreateNotes extends React.Component {
             name="text"
             margin="normal"
             variant="outlined"
+            error={this.state.taskNameRequired}
           />
           <TextareaAutosize
             rows={6}
