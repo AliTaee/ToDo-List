@@ -1,10 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 // Materail UI
 import TextField from '@material-ui/core/TextField';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import Button from '@material-ui/core/Button';
+
+// Redux
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { addTask } from '../../redux/Actions/actionCreator';
 
 class CreateNotes extends React.Component {
   constructor(props) {
@@ -18,8 +22,12 @@ class CreateNotes extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    console.log(this.state.taskName);
-    console.log(this.state.taskContent);
+    const newTask = {
+      task: this.state.taskName,
+      content: this.state.taskContent
+    };
+
+    this.props.addTask(newTask);
 
     this.setState({ taskName: '', taskContent: '' });
   };
@@ -71,7 +79,13 @@ class CreateNotes extends React.Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    addTask: bindActionCreators(addTask, dispatch)
+  };
+}
+
 export default connect(
   null,
-  null
+  mapDispatchToProps
 )(CreateNotes);

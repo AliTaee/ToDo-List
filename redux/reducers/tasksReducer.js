@@ -1,8 +1,12 @@
-const tasks = [
-  { task: 'Learning Vue', content: 'You can do it' },
-  { task: 'Learning React', content: 'Lets Rock' }
-];
+import * as types from '../Actions/actionTypes';
+
+const tasks = [];
 
 export default function tasksReducer(state = tasks, action) {
-  return state;
+  switch (action.type) {
+    case types.ADD_TASK:
+      return [...state, action.payload.newTask];
+    default:
+      return state;
+  }
 }
