@@ -12,18 +12,18 @@ const Menu = () => (
       <ul>
         <li className="nav-item">
           <Link href="/">
-            <a>
+            <div>
               <HomeIcon />
               <span>Home</span>
-            </a>
+            </div>
           </Link>
         </li>
         <li className="nav-item">
           <Link href="/about">
-            <a>
+            <div>
               <InfoIcon />
               <span>About Todo List</span>
-            </a>
+            </div>
           </Link>
         </li>
       </ul>

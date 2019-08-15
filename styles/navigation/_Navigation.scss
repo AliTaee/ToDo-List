@@ -9,9 +9,10 @@ nav {
   .nav-item {
     margin-bottom: 7px;
     position: relative;
-    a {
+    div {
       color: $main_color;
       text-decoration: none;
+      cursor: pointer;
 
       span {
         position: absolute;
