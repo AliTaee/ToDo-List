@@ -7,15 +7,19 @@ class View extends React.Component {
       <section>
         <h2>Note List</h2>
         <ul>
-          {this.props.tasks.map(function(item, index) {
-            return (
-              <li key={index}>
-                {item.task}
-                <br />
-                {item.content}
-              </li>
-            );
-          })}
+          {this.props.tasks.length === 0 ? (
+            <p>No notes yet.</p>
+          ) : (
+            this.props.tasks.map(function(item, index) {
+              return (
+                <li key={index}>
+                  {item.task}
+                  <br />
+                  {item.content}
+                </li>
+              );
+            })
+          )}
         </ul>
       </section>
     );
@@ -24,11 +28,11 @@ class View extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    tasks: state.tasksReducer
+    tasks: state.tasksReducer,
   };
 };
 
 export default connect(
   mapStateToProps,
-  null
+  null,
 )(View);
