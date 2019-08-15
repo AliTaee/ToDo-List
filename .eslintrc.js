@@ -13,6 +13,7 @@ module.exports = {
     'react/jsx-filename-extension': 0,
     'react/forbid-prop-types': 0,
     'react/require-default-props': 0,
+    'linebreak-style': ['error', process.env.NODE_ENV === 'prod' ? 'unix' : 'windows'],
   },
   extends: ['airbnb'],
 };
