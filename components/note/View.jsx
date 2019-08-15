@@ -1,30 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-class View extends React.Component {
-  render() {
-    return (
-      <section>
-        <h2>Note List</h2>
-        <ul>
-          {this.props.tasks.length === 0 ? (
-            <p>No notes yet.</p>
-          ) : (
-            this.props.tasks.map(function(item, index) {
-              return (
-                <li key={index}>
-                  {item.task}
-                  <br />
-                  {item.content}
-                </li>
-              );
-            })
-          )}
-        </ul>
-      </section>
-    );
-  }
-}
+const shortid = require('shortid');
+
+const View = props => {
+  const { tasks } = props;
+  return (
+    <section>
+      <h2>Note List</h2>
+      <ul>
+        {tasks.length === 0 ? (
+          <p>No notes yet.</p>
+        ) : (
+          tasks.map(item => (
+            <li key={shortid.generate()}>
+              {item.task}
+              <br />
+              {item.content}
+            </li>
+          ))
+        )}
+      </ul>
+    </section>
+  );
+};
+
+View.propTypes = {
+  tasks: PropTypes.array,
+};
 
 const mapStateToProps = state => {
   return {
