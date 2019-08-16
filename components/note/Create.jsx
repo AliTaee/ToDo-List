@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 // Redux
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { addTask } from '../../redux/Actions/actionCreator';
+import addTask from '../../redux/Actions/actionCreator';
 
 const CreateNotes = props => {
   let taskName;
