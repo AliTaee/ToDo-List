@@ -2,10 +2,11 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './redux/reducers/rootReducer';
 
-const exampleInitialState = {
+const appInitialState = {
   InitialState: [],
 };
 
-export function initializeStore(initialState = exampleInitialState) {
-  return createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware()));
-}
+const initializeStore = (initialState = appInitialState) =>
+  createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware()));
+
+export default initializeStore;
