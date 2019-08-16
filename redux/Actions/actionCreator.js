@@ -1,7 +1,7 @@
-import * as types from './actionTypes';
+import ADD_TASK from './actionTypes';
 
 const addTask = newTask => ({
-  type: types.ADD_TASK,
+  type: ADD_TASK,
   payload: {
     newTask,
   },
