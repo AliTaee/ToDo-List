@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Materail UI
 import TextField from '@material-ui/core/TextField';
@@ -10,76 +11,73 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { addTask } from '../../redux/Actions/actionCreator';
 
-class CreateNotes extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      taskName: '',
-      taskContent: '',
-      taskNameRequired: false,
-    };
-  }
+const CreateNotes = props => {
+  let taskName;
+  let taskContent;
+  let taskNameRequired = false;
 
-  handleSubmit = event => {
+  const handleSubmit = event => {
     event.preventDefault();
 
-    if (this.state.taskName === '') {
-      this.setState({ taskNameRequired: true });
+    if (taskName === '') {
+      taskNameRequired = true;
       return;
     }
 
     const newTask = {
-      task: this.state.taskName,
-      content: this.state.taskContent,
+      task: taskName,
+      content: taskContent,
     };
 
-    this.props.addTask(newTask);
+    props.addTask(newTask);
 
-    this.setState({ taskName: '', taskContent: '' });
+    event.target.reset();
   };
 
-  handleTaskName = e => {
-    this.setState({ taskName: e.target.value });
+  const handleTaskName = e => {
+    taskName = e.target.value;
   };
 
-  handleTaskContent = e => {
-    this.setState({ taskContent: e.target.value });
+  const handleTaskContent = e => {
+    taskContent = e.target.value;
   };
 
-  render() {
-    return (
-      <section>
-        <h2>Add Note</h2>
-        <form id="create-note" noValidate autoComplete="off" onSubmit={this.handleSubmit}>
-          <TextField
-            required
-            fullWidth
-            onChange={this.handleTaskName}
-            value={this.state.taskName}
-            id="title-task"
-            label="Note Title"
-            type="text"
-            name="text"
-            margin="normal"
-            variant="outlined"
-            error={this.state.taskNameRequired}
-          />
-          <TextareaAutosize
-            rows={6}
-            onChange={this.handleTaskContent}
-            value={this.state.taskContent}
-            id="content-task"
-            aria-label="note content"
-            placeholder="Note Content"
-          />
-          <Button type="submit" variant="contained" color="primary">
-            Create Note
-          </Button>
-        </form>
-      </section>
-    );
-  }
-}
+  return (
+    <section>
+      <h2>Add Note</h2>
+      <form id="create-note" autoComplete="off" onSubmit={handleSubmit}>
+        <TextField
+          required
+          fullWidth
+          onChange={handleTaskName}
+          value={taskName}
+          id="title-task"
+          label="Note Title"
+          type="text"
+          name="text"
+          margin="normal"
+          variant="outlined"
+          error={taskNameRequired}
+        />
+        <TextareaAutosize
+          rows={6}
+          onChange={handleTaskContent}
+          value={taskContent}
+          id="content-task"
+          aria-label="note content"
+          placeholder="Note Content"
+        />
+        <Button type="submit" variant="contained" color="primary">
+          Create Note
+        </Button>
+      </form>
+    </section>
+  );
+};
+
+CreateNotes.propTypes = {
+  addTask: PropTypes.func.isRequired,
+};
 
 function mapDispatchToProps(dispatch) {
   return {
