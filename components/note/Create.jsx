@@ -31,6 +31,8 @@ const CreateNotes = props => {
 
     props.addTask(newTask);
 
+    taskName = '';
+    taskContent = '';
     event.target.reset();
   };
 
