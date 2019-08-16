@@ -14,5 +14,5 @@ module.exports = {
     'react/forbid-prop-types': 0,
     'react/require-default-props': 0,
   },
-  extends: ['airbnb'],
+  extends: ['airbnb', 'prettier'],
 };
