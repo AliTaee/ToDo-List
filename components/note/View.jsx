@@ -27,7 +27,7 @@ const View = props => {
 };
 
 View.propTypes = {
-  tasks: PropTypes.array,
+  tasks: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = state => {
