@@ -1,10 +1,15 @@
-import ADD_TASK from './actionTypes';
+import * as type from './actionTypes';
 
-const addTask = newTask => ({
-  type: ADD_TASK,
+export const addTask = newTask => ({
+  type: type.ADD_TASK,
   payload: {
     newTask,
   },
 });
 
-export default addTask;
+export const deleteTask = id => ({
+  type: type.DELETE_TASK,
+  payload: {
+    id,
+  },
+});

@@ -1,11 +1,11 @@
-import ADD_TASK from '../Actions/actionTypes';
+import * as type from '../Actions/actionTypes';
 const shortid = require('shortid');
 
 const tasks = [];
 
 export default function tasksReducer(state = tasks, action) {
   switch (action.type) {
-    case ADD_TASK: {
+    case type.ADD_TASK: {
       let taskWidthData = Object.assign({}, action.payload.newTask, {
         date: new Date()
           .toISOString()
@@ -16,6 +16,9 @@ export default function tasksReducer(state = tasks, action) {
       });
 
       return [...state, taskWidthData];
+    }
+    case type.DELETE_TASK: {
+      return state.filter(taskItem => taskItem.id !== action.payload.id);
     }
 
     default:

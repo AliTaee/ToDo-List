@@ -1,6 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
+// Redux
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { deleteTask } from '../../redux/Actions/actionCreator';
 
 // Materail UI
 import List from '@material-ui/core/List';
@@ -18,6 +22,10 @@ const View = props => {
 
   const handleToggle = value => {
     console.log(value);
+  };
+
+  const handleDeleteNote = id => {
+    props.deleteTask(id);
   };
 
   return (
@@ -44,7 +52,11 @@ const View = props => {
                 secondary={`${item.date}`}
               />
               <ListItemSecondaryAction>
-                <IconButton edge="end" aria-label="delete">
+                <IconButton
+                  onClick={() => handleDeleteNote(item.id)}
+                  edge="end"
+                  aria-label="delete"
+                >
                   <DeleteIcon />
                 </IconButton>
                 <IconButton edge="end" aria-label="edit">
@@ -61,6 +73,7 @@ const View = props => {
 
 View.propTypes = {
   tasks: PropTypes.array.isRequired,
+  deleteTask: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => {
@@ -69,7 +82,13 @@ const mapStateToProps = state => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteTask: bindActionCreators(deleteTask, dispatch),
+  };
+};
+
 export default connect(
   mapStateToProps,
-  null,
+  mapDispatchToProps,
 )(View);
