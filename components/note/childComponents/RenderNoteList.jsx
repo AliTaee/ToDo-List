@@ -72,7 +72,7 @@ const RenderNoteList = props => {
           </ListItem>
         ))}
       </List>
-      <DeleteNotes />
+      <DeleteNotes selectedNotes={checked} />
     </div>
   );
 };

@@ -19,7 +19,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 const DeleteNotes = props => {
   const [open, setOpen] = React.useState(false);
-
+  const { selectedNotes } = props;
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -29,7 +29,12 @@ const DeleteNotes = props => {
   };
 
   const handleDeleteAllNote = () => {
-    props.deleteTasks();
+    const ids = selectedNotes
+      .filter(item => {
+        return typeof item === 'object' && item !== null;
+      })
+      .map(item => item.id);
+    props.deleteTasks(ids);
     setOpen(false);
   };
 
@@ -65,6 +70,7 @@ const DeleteNotes = props => {
 
 DeleteNotes.propTypes = {
   deleteTasks: PropTypes.func.isRequired,
+  selectedNotes: PropTypes.array.isRequired,
 };
 
 const mapDispatchToProps = dispatch => {
