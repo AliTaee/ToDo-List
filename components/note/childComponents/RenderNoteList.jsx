@@ -23,8 +23,19 @@ import DeleteNotes from './DeleteNotes';
 const RenderNoteList = props => {
   const { tasks } = props;
 
-  const handleToggle = value => {
-    console.log(value);
+  const [checked, setChecked] = React.useState([0]);
+
+  const handleToggle = value => () => {
+    const currentIndex = checked.indexOf(value);
+    const newChecked = [...checked];
+
+    if (currentIndex === -1) {
+      newChecked.push(value);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+
+    setChecked(newChecked);
   };
 
   const handleDeleteNote = id => {
@@ -35,11 +46,11 @@ const RenderNoteList = props => {
     <div className="list-tasks">
       <List className="note-list">
         {tasks.map(item => (
-          <ListItem key={item.id} role={undefined} dense button onClick={handleToggle(item.id)}>
+          <ListItem key={item.id} role={undefined} dense button onClick={handleToggle(item)}>
             <ListItemIcon>
               <Checkbox
                 edge="start"
-                checked={false}
+                checked={checked.indexOf(item) !== -1}
                 tabIndex={-1}
                 disableRipple
                 inputProps={{ 'aria-labelledby': item.id }}
