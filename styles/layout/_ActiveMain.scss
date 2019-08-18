@@ -4,10 +4,15 @@
 @import './AboutPage.scss';
 
 /*
+* View Note
+*/
+@import './ViewNotes.scss';
+
+/*
 * Active main
 */
 .main {
-    background: $active_main;
-    padding: 0 2em;
-    height: 100vh;
+  background: $active_main;
+  padding: 0 2em;
+  height: 100vh;
 }
