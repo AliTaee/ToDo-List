@@ -49,7 +49,7 @@ const View = props => {
               <ListItemText
                 id={shortid.generate()}
                 primary={`${item.task} ${item.content}`}
-                secondary={`Time`}
+                secondary={`${item.date}`}
               />
               <ListItemSecondaryAction>
                 <IconButton edge="end" aria-label="delete">
