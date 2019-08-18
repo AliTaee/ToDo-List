@@ -1,4 +1,5 @@
 import ADD_TASK from '../Actions/actionTypes';
+const shortid = require('shortid');
 
 const tasks = [];
 
@@ -11,6 +12,7 @@ export default function tasksReducer(state = tasks, action) {
           .replace('-', '/')
           .split('T')[0]
           .replace('-', '/'),
+        id: shortid.generate(),
       });
 
       return [...state, taskWidthData];

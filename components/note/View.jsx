@@ -13,8 +13,6 @@ import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 
-const shortid = require('shortid');
-
 const View = props => {
   const { tasks } = props;
 
@@ -30,24 +28,18 @@ const View = props => {
       ) : (
         <List className="note-list">
           {tasks.map(item => (
-            <ListItem
-              key={shortid.generate()}
-              role={undefined}
-              dense
-              button
-              onClick={handleToggle(shortid.generate())}
-            >
+            <ListItem key={item.id} role={undefined} dense button onClick={handleToggle(item.id)}>
               <ListItemIcon>
                 <Checkbox
                   edge="start"
                   checked={false}
                   tabIndex={-1}
                   disableRipple
-                  inputProps={{ 'aria-labelledby': shortid.generate() }}
+                  inputProps={{ 'aria-labelledby': item.id }}
                 />
               </ListItemIcon>
               <ListItemText
-                id={shortid.generate()}
+                id={item.id}
                 primary={`${item.task} ${item.content}`}
                 secondary={`${item.date}`}
               />
