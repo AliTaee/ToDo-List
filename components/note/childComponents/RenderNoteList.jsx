@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // Redux
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { deleteTask, deleteTasks } from '../../../redux/Actions/actionCreator';
+import { deleteTask } from '../../../redux/Actions/actionCreator';
 
 // Materail UI
 import List from '@material-ui/core/List';
@@ -14,9 +14,11 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
+
+// Component
+import DeleteNotes from './DeleteNotes';
 
 const RenderNoteList = props => {
   const { tasks } = props;
@@ -27,10 +29,6 @@ const RenderNoteList = props => {
 
   const handleDeleteNote = id => {
     props.deleteTask(id);
-  };
-
-  const handleDeleteAllNote = () => {
-    props.deleteTasks();
   };
 
   return (
@@ -63,9 +61,7 @@ const RenderNoteList = props => {
           </ListItem>
         ))}
       </List>
-      <Button onClick={handleDeleteAllNote} variant="contained" color="secondary">
-        <DeleteIcon /> Delete Notes
-      </Button>
+      <DeleteNotes />
     </div>
   );
 };
@@ -73,13 +69,11 @@ const RenderNoteList = props => {
 RenderNoteList.propTypes = {
   tasks: PropTypes.array.isRequired,
   deleteTask: PropTypes.func.isRequired,
-  deleteTasks: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     deleteTask: bindActionCreators(deleteTask, dispatch),
-    deleteTasks: bindActionCreators(deleteTasks, dispatch),
   };
 };
 
