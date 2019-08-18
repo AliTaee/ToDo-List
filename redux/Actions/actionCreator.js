@@ -13,3 +13,7 @@ export const deleteTask = id => ({
     id,
   },
 });
+
+export const deleteTasks = () => ({
+  type: type.DELETE_TASKS,
+});
