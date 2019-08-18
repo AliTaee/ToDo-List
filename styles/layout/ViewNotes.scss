@@ -1,4 +1,6 @@
 .note-list {
+  overflow: auto;
+  max-height: 400px;
   svg,
   .MuiCheckbox-root {
     color: $main_color;
