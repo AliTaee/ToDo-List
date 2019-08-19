@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 // Redux
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { addTask } from '../../redux/Actions/actionCreator';
+import { addTask } from '../../redux/Actions/actionTasks';
 
 const CreateNotes = props => {
   let taskName;
@@ -51,6 +51,7 @@ const CreateNotes = props => {
         <TextField
           required
           fullWidth
+          autoFocus
           onChange={handleTaskName}
           value={taskName}
           id="title-task"
