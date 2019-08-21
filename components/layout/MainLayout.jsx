@@ -19,10 +19,10 @@ const MainLayout = props => {
       <Head />
       <Container>
         <Grid container spacing={0}>
-          <Grid item xs={12} md={3}>
+          <Grid className="sidebar" item xs={12} sm={12} md={3}>
             <Menu />
           </Grid>
-          <Grid className="main" item xs={12} md={9}>
+          <Grid className="main" item xs={12} sm={12} md={9}>
             {children}
           </Grid>
         </Grid>
