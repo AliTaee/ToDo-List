@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 // Materail UI
@@ -15,6 +15,7 @@ const CreateNotes = props => {
   let taskName;
   let taskContent;
   let taskNameRequired = false;
+  let titleNote = useRef(null);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -33,6 +34,7 @@ const CreateNotes = props => {
 
     taskName = '';
     taskContent = '';
+    titleNote.current.focus();
     event.target.reset();
   };
 
@@ -52,6 +54,7 @@ const CreateNotes = props => {
           required
           fullWidth
           autoFocus
+          inputRef={titleNote}
           onChange={handleTaskName}
           value={taskName}
           id="title-task"
