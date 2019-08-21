@@ -4,7 +4,7 @@ import React from 'react';
 import LoveIcon from '@material-ui/icons/Favorite';
 
 // Components
-import Layout from '../components/layout/MainLayout';
+import Layout from '../src/components/layout/MainLayout';
 
 function About() {
   return (

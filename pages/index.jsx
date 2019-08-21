@@ -9,14 +9,14 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 
 // Components
-import Head from '../components/layout/Head';
-import Menu from '../components/navigation/Menu';
-import CreateNote from '../components/note/Create';
-import ViewNotes from '../components/note/ViewNotes';
-import ViewNote from '../components/note/ViewNote';
+import Head from '../src/components/layout/Head';
+import Menu from '../src/components/navigation/Menu';
+import CreateNote from '../src/components/note/Create';
+import ViewNotes from '../src/components/note/ViewNotes';
+import ViewNote from '../src/components/note/ViewNote';
 
 // Styles
-import '../styles/style.scss';
+import '../src/styles/style.scss';
 
 const Index = props => {
   const { active } = props;
