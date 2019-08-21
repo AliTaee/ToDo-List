@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 // Materail UI
@@ -14,14 +14,15 @@ import { addTask } from '../../redux/Actions/actionTasks';
 const CreateNotes = props => {
   let taskName;
   let taskContent;
-  let taskNameRequired = false;
   let titleNote = useRef(null);
+  const [taskNameRequired, setError] = useState([false]);
 
   const handleSubmit = event => {
     event.preventDefault();
 
-    if (taskName === '') {
-      taskNameRequired = true;
+    if (taskName === '' || taskName === undefined) {
+      setError(true);
+      titleNote.current.focus();
       return;
     }
 
@@ -34,6 +35,7 @@ const CreateNotes = props => {
 
     taskName = '';
     taskContent = '';
+    setError(false);
     titleNote.current.focus();
     event.target.reset();
   };
@@ -47,9 +49,9 @@ const CreateNotes = props => {
   };
 
   return (
-    <section>
+    <section id="create-note">
       <h2>Add Note</h2>
-      <form id="create-note" autoComplete="off" onSubmit={handleSubmit}>
+      <form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <TextField
           required
           fullWidth
@@ -63,12 +65,10 @@ const CreateNotes = props => {
           name="text"
           margin="normal"
           variant="outlined"
-          error={taskNameRequired}
         />
         <TextareaAutosize
           rows={6}
           onChange={handleTaskContent}
-          value={taskContent}
           id="content-task"
           aria-label="note content"
           placeholder="Note Content"
@@ -77,6 +77,9 @@ const CreateNotes = props => {
           Create Note
         </Button>
       </form>
+      {taskNameRequired === true && (
+        <p className="error message">Please enter a title for the note.</p>
+      )}
     </section>
   );
 };
