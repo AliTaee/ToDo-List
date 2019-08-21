@@ -21,10 +21,27 @@
     background-color: #f1d8d6;
     color: #b94842;
   }
+
+  .success {
+    background-color: #c4ead9;
+    color: #42b983;
+  }
+
+  .mobile {
+    display: none;
+  }
 }
 
 #content-task {
   display: block;
   margin: 7px 0 14px;
   width: 100%;
+}
+
+@media only screen and (max-width: $tablet) {
+  #create-note {
+    .mobile {
+      display: block;
+    }
+  }
 }

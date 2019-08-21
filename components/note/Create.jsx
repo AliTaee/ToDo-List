@@ -16,12 +16,14 @@ const CreateNotes = props => {
   let taskContent;
   let titleNote = useRef(null);
   const [taskNameRequired, setError] = useState([false]);
+  const [successCreate, setMassage] = useState([false]);
 
   const handleSubmit = event => {
     event.preventDefault();
 
     if (taskName === '' || taskName === undefined) {
       setError(true);
+      setMassage(false);
       titleNote.current.focus();
       return;
     }
@@ -36,6 +38,7 @@ const CreateNotes = props => {
     taskName = '';
     taskContent = '';
     setError(false);
+    setMassage(true);
     titleNote.current.focus();
     event.target.reset();
   };
@@ -80,6 +83,7 @@ const CreateNotes = props => {
       {taskNameRequired === true && (
         <p className="error message">Please enter a title for the note.</p>
       )}
+      {successCreate === true && <p className="mobile success message">Note saved successfully.</p>}
     </section>
   );
 };
