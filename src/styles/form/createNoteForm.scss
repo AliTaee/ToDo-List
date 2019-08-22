@@ -3,10 +3,12 @@
 */
 
 #create-note {
+
   input,
   label {
     color: $main_color;
   }
+
   fieldset {
     border: 1px solid $main_color;
   }

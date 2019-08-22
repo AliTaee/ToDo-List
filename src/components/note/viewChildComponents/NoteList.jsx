@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 // Redux
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { deleteTask } from '../../../redux/Actions/actionTasks';
-import { activeMain } from '../../../redux/Actions/actionMain';
+import { deleteTask } from '../../../redux/actions/actionTasks';
+import { activeMain } from '../../../redux/actions/actionMain';
 
 // Materail UI
 import List from '@material-ui/core/List';

@@ -1,7 +1,7 @@
 /*
 * Variables colors and font
 */
-@import './Variables';
+@import './variables.scss';
 
 /*
 * CSS Reset and Normalize
@@ -22,19 +22,19 @@ body {
 /*
 * Typography
 */
-@import './typography/Typography';
+@import './typography/typography';
 
 /*
 * Active main
 */
-@import './layout/ActiveMain';
+@import './layout/activeMain';
 
 /*
 * Navigation
 */
-@import './navigation/Navigation';
+@import './navigation/navigation';
 
 /*
 * Create Note Form
 */
-@import './form/CreateNoteForm';
+@import './form/createNoteForm';

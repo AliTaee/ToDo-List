@@ -11,7 +11,7 @@ import Grid from '@material-ui/core/Grid';
 // Components
 import Head from '../src/components/layout/Head';
 import Menu from '../src/components/navigation/Menu';
-import CreateNote from '../src/components/note/Create';
+import CreateNote from '../src/components/note/CreateNote';
 import ViewNotes from '../src/components/note/ViewNotes';
 import ViewNote from '../src/components/note/ViewNote';
 

@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 // Redux
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { activeMain } from '../../redux/Actions/actionMain';
+import { activeMain } from '../../redux/actions/actionMain';
 
 // Components
-import NoteList from './ViewSubComponents/NoteList';
+import NoteList from './viewChildComponents/NoteList';
 
 // Materail UI
 import Button from '@material-ui/core/Button';
