@@ -7,7 +7,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint pages/**/*.js pages/**/*.jsx components/**/*.jsx"
+    "lint": "eslint pages/**/*.js pages/**/*.jsx src/**/*.jsx src/**/*.js static/**/*.js next.config.js pwabuilder-sw.js"
   },
   "keywords": [
     "Todolist",

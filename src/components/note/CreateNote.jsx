@@ -1,26 +1,29 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 // Materail UI
 import TextField from '@material-ui/core/TextField';
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import Button from '@material-ui/core/Button';
 
 // Redux
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { addTask } from '../../redux/Actions/actionCreator';
+import { addTask } from '../../redux/actions/actionTasks';
 
 const CreateNotes = props => {
   let taskName;
   let taskContent;
-  let taskNameRequired = false;
+  let titleNote = useRef(null);
+  const [taskNameRequired, setError] = useState([false]);
+  const [successCreate, setMassage] = useState([false]);
 
   const handleSubmit = event => {
     event.preventDefault();
 
-    if (taskName === '') {
-      taskNameRequired = true;
+    if (taskName === '' || taskName === undefined) {
+      setError(true);
+      setMassage(false);
+      titleNote.current.focus();
       return;
     }
 
@@ -33,6 +36,9 @@ const CreateNotes = props => {
 
     taskName = '';
     taskContent = '';
+    setError(false);
+    setMassage(true);
+    titleNote.current.focus();
     event.target.reset();
   };
 
@@ -45,34 +51,41 @@ const CreateNotes = props => {
   };
 
   return (
-    <section>
+    <section id="create-note">
       <h2>Add Note</h2>
-      <form id="create-note" autoComplete="off" onSubmit={handleSubmit}>
+      <form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <TextField
           required
           fullWidth
+          autoFocus
+          inputRef={titleNote}
           onChange={handleTaskName}
+          error={taskNameRequired === true}
           value={taskName}
           id="title-task"
           label="Note Title"
           type="text"
           name="text"
-          margin="normal"
-          variant="outlined"
-          error={taskNameRequired}
+          variant="filled"
+          classes={{ root: 'note-titile' }}
         />
-        <TextareaAutosize
+        <TextField
+          label="Note Content"
+          multiline
+          fullWidth
+          margin="normal"
           rows={6}
           onChange={handleTaskContent}
-          value={taskContent}
           id="content-task"
           aria-label="note content"
-          placeholder="Note Content"
+          variant="filled"
+          classes={{ root: 'note-desc' }}
         />
         <Button type="submit" variant="contained" color="primary">
           Create Note
         </Button>
       </form>
+      {successCreate === true && <p className="mobile success message">Note saved successfully.</p>}
     </section>
   );
 };

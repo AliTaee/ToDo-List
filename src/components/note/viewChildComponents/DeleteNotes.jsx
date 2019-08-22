@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 // Redux
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { deleteTasks } from '../../../redux/Actions/actionCreator';
+import { deleteTasks } from '../../../redux/actions/actionTasks';
+import { activeMain } from '../../../redux/actions/actionMain';
 
 // Materail UI - Button and Icon
 import Button from '@material-ui/core/Button';
@@ -19,7 +20,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 const DeleteNotes = props => {
   const [open, setOpen] = React.useState(false);
-  const { selectedNotes } = props;
+  const { selectedNotes, numberListItem } = props;
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -35,6 +36,11 @@ const DeleteNotes = props => {
       })
       .map(item => item.id);
     props.deleteTasks(ids);
+
+    if (numberListItem === --selectedNotes.length) {
+      props.activeMain('create');
+    }
+
     setOpen(false);
   };
 
@@ -69,13 +75,16 @@ const DeleteNotes = props => {
 };
 
 DeleteNotes.propTypes = {
+  activeMain: PropTypes.func.isRequired,
   deleteTasks: PropTypes.func.isRequired,
   selectedNotes: PropTypes.array.isRequired,
+  numberListItem: PropTypes.number.isRequired,
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     deleteTasks: bindActionCreators(deleteTasks, dispatch),
+    activeMain: bindActionCreators(activeMain, dispatch),
   };
 };
 
