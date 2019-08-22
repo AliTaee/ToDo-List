@@ -1,0 +1,54 @@
+/*
+* About Page
+*/
+@import './aboutPage.scss';
+
+/*
+* View Note
+*/
+@import './viewNotes.scss';
+
+/*
+* Active main
+*/
+.main {
+  background: $active_main;
+  padding: 0 2em;
+  height: 100vh;
+}
+
+.note-content {
+  border-radius: 5px;
+  border: 1px solid $main_color;
+  background-color: $main_color;
+  color: $black_color;
+  padding: 15px;
+  margin: 2.75rem 0 1rem;
+  h3 {
+    font-size: 1.44em;
+    margin-top: 0;
+    small {
+      font-weight: 400;
+      font-size: 0.65em;
+      color: $gray_color;
+    }
+  }
+}
+
+@media only screen and (max-width: $tablet) {
+  #__next {
+    .MuiContainer-root {
+      padding: 0;
+    }
+    .MuiGrid-container {
+      flex-direction: column-reverse;
+    }
+    .sidebar {
+      padding: 0 2em;
+      margin-bottom: 2.75rem;
+    }
+    #create-note {
+      margin-bottom: 2em;
+    }
+  }
+}

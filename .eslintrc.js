@@ -1,18 +1,25 @@
 module.exports = {
-    extends: ['airbnb'],
-    env: {
-     browser: true,
+  env: {
+    browser: true,
+    node: true,
+  },
+  parser: 'babel-eslint',
+  rules: {
+    strict: 0,
+    'linebreak-style': 0,
+    'prettier/prettier': 'error',
+  },
+  settings: {
+    react: {
+      version: '16.8.6',
     },
-    parser: 'babel-eslint',
-    rules: {
-     indent: 0,
-     'no-tabs': 0,
-     'eol-last': ['error', 'always'],
-     'no-underscore-dangle': 0,
-     'react/jsx-indent': 0,
-     'react/jsx-indent-props': 0,
-     'react/jsx-filename-extension': 0,
-     'react/forbid-prop-types': 0,
-     'react/require-default-props': 0,
-    },
-   };
+  },
+  plugins: ['prettier'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'prettier',
+    'prettier/react',
+    'plugin:prettier/recommended',
+  ],
+};

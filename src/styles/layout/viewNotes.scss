@@ -1,0 +1,20 @@
+.note-list {
+  overflow: auto;
+  max-height: 400px;
+  svg,
+  .MuiCheckbox-root {
+    color: $main_color;
+  }
+  p {
+    color: $gray_color;
+  }
+}
+
+.note-list-container {
+  position: relative;
+  .add-note {
+    position: absolute;
+    top: 0;
+    right: 10px;
+  }
+}

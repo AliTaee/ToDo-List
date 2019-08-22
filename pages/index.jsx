@@ -1,28 +1,54 @@
 import React from 'react';
-import Head from 'next/head';
-import { useCounterContext } from '../context/store';
-import HelloWorld from '../components/HelloWorld';
-import '../styles/style.scss';
+import PropTypes from 'prop-types';
 
-function Index() {
-    return (
-        <useCounterContext.Provider>
-            <Head>
-                <title>Todo list</title>
-                <meta
-                    name="viewport"
-                    content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
-                    key="viewport"
-                />
-                <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-                <script type="text/javascript" src="/static/pwa_script.js" />
-            </Head>
-            <div>
-                <HelloWorld />
-            </div>
-        </useCounterContext.Provider>
-    );
-}
+// Redux
+import { connect } from 'react-redux';
 
-export default Index;
+// Styles
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+
+// Components
+import Head from '../src/components/layout/Head';
+import Menu from '../src/components/navigation/Menu';
+import CreateNote from '../src/components/note/CreateNote';
+import ViewNotes from '../src/components/note/ViewNotes';
+import ViewNote from '../src/components/note/ViewNote';
+
+// Styles
+import '../src/styles/style.scss';
+
+const Index = props => {
+  const { active } = props;
+  return (
+    <main>
+      <Head />
+      <Container>
+        <Grid container spacing={0}>
+          <Grid className="sidebar" item xs={12} sm={12} md={3}>
+            <Menu />
+            <ViewNotes />
+          </Grid>
+          <Grid className="main" item xs={12} sm={12} md={9}>
+            {active.name === 'create' ? <CreateNote /> : <ViewNote />}
+          </Grid>
+        </Grid>
+      </Container>
+    </main>
+  );
+};
+
+Index.propTypes = {
+  active: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = state => {
+  return {
+    active: state.mainReducer,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null,
+)(Index);
