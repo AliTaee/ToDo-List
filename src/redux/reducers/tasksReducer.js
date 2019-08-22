@@ -1,4 +1,4 @@
-import * as type from '../Actions/actionTypes';
+import * as type from '../actions/actionTypes';
 const shortid = require('shortid');
 
 const tasks = [];

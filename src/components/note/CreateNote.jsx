@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 // Materail UI
 import TextField from '@material-ui/core/TextField';
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import Button from '@material-ui/core/Button';
 
 // Redux
@@ -61,28 +60,31 @@ const CreateNotes = props => {
           autoFocus
           inputRef={titleNote}
           onChange={handleTaskName}
+          error={taskNameRequired === true}
           value={taskName}
           id="title-task"
           label="Note Title"
           type="text"
           name="text"
-          margin="normal"
-          variant="outlined"
+          variant="filled"
+          classes={{ root: 'note-titile' }}
         />
-        <TextareaAutosize
+        <TextField
+          label="Note Content"
+          multiline
+          fullWidth
+          margin="normal"
           rows={6}
           onChange={handleTaskContent}
           id="content-task"
           aria-label="note content"
-          placeholder="Note Content"
+          variant="filled"
+          classes={{ root: 'note-desc' }}
         />
         <Button type="submit" variant="contained" color="primary">
           Create Note
         </Button>
       </form>
-      {taskNameRequired === true && (
-        <p className="error message">Please enter a title for the note.</p>
-      )}
       {successCreate === true && <p className="mobile success message">Note saved successfully.</p>}
     </section>
   );
