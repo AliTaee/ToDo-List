@@ -38,6 +38,10 @@ const NoteList = props => {
 
   const handleDeleteNote = id => {
     props.deleteTask(id);
+
+    if (tasks.length === 1) {
+      props.activeMain('create');
+    }
   };
 
   return (
