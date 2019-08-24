@@ -12,6 +12,12 @@
 
 .note-list-container {
   position: relative;
+
+  .done span {
+    text-decoration: line-through;
+  }
+
+  .delete-note,
   .add-note {
     position: absolute;
     top: 0;

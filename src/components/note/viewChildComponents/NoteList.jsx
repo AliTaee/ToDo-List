@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // Redux
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { deleteTask } from '../../../redux/actions/actionTasks';
+import { deleteTask, doneTask } from '../../../redux/actions/actionTasks';
 import { activeMain } from '../../../redux/actions/actionMain';
 
 // Materail UI
@@ -18,45 +18,63 @@ import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 
+// Component
+import DeleteNotes from './DeleteNotes';
+
 const NoteList = props => {
   const { tasks } = props;
 
-  const handleToggle = item => {
+  const handleActiveMain = item => {
     props.activeMain('singleNote', item.task, item.content, item.date);
   };
 
-  const handleDeleteNote = id => {
-    if (tasks.length === 1) {
-      props.activeMain('create');
+  const handleToggle = item => {
+    if (item.done === false) {
+      props.doneTask(true, item.id);
+    } else {
+      props.doneTask(false, item.id);
     }
+  };
+
+  const handleDeleteNote = id => {
     props.deleteTask(id);
   };
 
   return (
-    <List className="note-list">
-      {tasks.map(item => (
-        <ListItem key={item.id} dense button onClick={() => handleToggle(item)}>
-          <ListItemIcon>
-            <Checkbox
-              edge="start"
-              checked={false}
-              tabIndex={-1}
-              disableRipple
-              inputProps={{ 'aria-labelledby': item.id }}
+    <div className="list-tasks">
+      <List className="note-list">
+        {tasks.map(item => (
+          <ListItem key={item.id} dense button>
+            <ListItemIcon>
+              <Checkbox
+                edge="start"
+                onClick={() => handleToggle(item)}
+                checked={item.done === true}
+                tabIndex={-1}
+                disableRipple
+                inputProps={{ 'aria-labelledby': item.id }}
+              />
+            </ListItemIcon>
+            <ListItemText
+              onClick={() => handleActiveMain(item)}
+              className={item.done === true ? 'done' : ''}
+              id={item.id}
+              primary={item.task}
+              secondary={`${item.date}`}
             />
-          </ListItemIcon>
-          <ListItemText id={item.id} primary={item.task} secondary={`${item.date}`} />
-          <ListItemSecondaryAction>
-            <IconButton onClick={() => handleDeleteNote(item.id)} edge="end" aria-label="delete">
-              <DeleteIcon />
-            </IconButton>
-            <IconButton edge="end" aria-label="edit">
-              <EditIcon />
-            </IconButton>
-          </ListItemSecondaryAction>
-        </ListItem>
-      ))}
-    </List>
+            <ListItemSecondaryAction>
+              <IconButton onClick={() => handleDeleteNote(item.id)} edge="end" aria-label="delete">
+                <DeleteIcon />
+              </IconButton>
+              <IconButton edge="end" aria-label="edit">
+                <EditIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
+          </ListItem>
+        ))}
+      </List>
+      {tasks.some(item => item.done === true) === true && <DeleteNotes selectedNotes={tasks} />}
+    </div>
   );
 };
 
@@ -64,12 +82,14 @@ NoteList.propTypes = {
   tasks: PropTypes.array.isRequired,
   deleteTask: PropTypes.func.isRequired,
   activeMain: PropTypes.func.isRequired,
+  doneTask: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     deleteTask: bindActionCreators(deleteTask, dispatch),
     activeMain: bindActionCreators(activeMain, dispatch),
+    doneTask: bindActionCreators(doneTask, dispatch),
   };
 };
 
