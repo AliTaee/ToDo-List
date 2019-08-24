@@ -11,6 +11,7 @@ import NoteList from './viewChildComponents/NoteList';
 
 // Materail UI
 import Button from '@material-ui/core/Button';
+import EditIcon from '@material-ui/icons/Edit';
 
 const View = props => {
   const { tasks, active } = props;
@@ -24,7 +25,7 @@ const View = props => {
       <h3>Note List</h3>
       {active.name === 'singleNote' && (
         <Button onClick={activeAddNote} className="add-note" variant="contained" color="primary">
-          Add Note
+          Add Note <EditIcon />
         </Button>
       )}
       {tasks.length === 0 ? <p>No notes yet.</p> : <NoteList tasks={tasks} />}

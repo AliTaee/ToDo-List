@@ -55,7 +55,7 @@ const DeleteNotes = props => {
   };
 
   return (
-    <div>
+    <div className="delete-note">
       <Dialog
         open={open}
         onClose={handleClose}
@@ -78,7 +78,7 @@ const DeleteNotes = props => {
         </DialogActions>
       </Dialog>
       <Button onClick={handleClickOpen} variant="contained" color="secondary">
-        <DeleteIcon /> Delete Notes
+        Delete Notes <DeleteIcon />
       </Button>
     </div>
   );
