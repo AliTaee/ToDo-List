@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // Redux
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { deleteTasks } from '../../../redux/actions/actionTasks';
+import { deleteTasks, doneTask } from '../../../redux/actions/actionTasks';
 import { activeMain } from '../../../redux/actions/actionMain';
 
 // Materail UI - Button and Icon
@@ -20,26 +20,36 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 const DeleteNotes = props => {
   const [open, setOpen] = React.useState(false);
-  const { selectedNotes, numberListItem } = props;
+  const { selectedNotes } = props;
+
+  const getIds = selectedNotes => {
+    const ids = selectedNotes.filter(item => item.done === true).map(item => item.id);
+
+    if (selectedNotes.length === ids.length) {
+      props.activeMain('create');
+    }
+
+    return ids;
+  };
+
   const handleClickOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
+
+    const ids = getIds(selectedNotes);
+
+    for (let index = 0; index <= ids.length; index++) {
+      props.doneTask(false, ids[index]);
+    }
   };
 
   const handleDeleteAllNote = () => {
-    const ids = selectedNotes
-      .filter(item => {
-        return typeof item === 'object' && item !== null;
-      })
-      .map(item => item.id);
-    props.deleteTasks(ids);
+    const deleteIds = getIds(selectedNotes);
 
-    if (numberListItem === --selectedNotes.length) {
-      props.activeMain('create');
-    }
+    props.deleteTasks(deleteIds);
 
     setOpen(false);
   };
@@ -75,16 +85,17 @@ const DeleteNotes = props => {
 };
 
 DeleteNotes.propTypes = {
+  doneTask: PropTypes.func.isRequired,
   activeMain: PropTypes.func.isRequired,
   deleteTasks: PropTypes.func.isRequired,
   selectedNotes: PropTypes.array.isRequired,
-  numberListItem: PropTypes.number.isRequired,
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     deleteTasks: bindActionCreators(deleteTasks, dispatch),
     activeMain: bindActionCreators(activeMain, dispatch),
+    doneTask: bindActionCreators(doneTask, dispatch),
   };
 };
 

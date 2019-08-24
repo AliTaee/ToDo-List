@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // Redux
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { deleteTask } from '../../../redux/actions/actionTasks';
+import { deleteTask, doneTask } from '../../../redux/actions/actionTasks';
 import { activeMain } from '../../../redux/actions/actionMain';
 
 // Materail UI
@@ -23,23 +23,17 @@ import DeleteNotes from './DeleteNotes';
 
 const NoteList = props => {
   const { tasks } = props;
-  const [checked, setChecked] = React.useState([0]);
 
   const handleActiveMain = item => {
     props.activeMain('singleNote', item.task, item.content, item.date);
   };
 
-  const handleToggle = value => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
+  const handleToggle = item => {
+    if (item.done === false) {
+      props.doneTask(true, item.id);
     } else {
-      newChecked.splice(currentIndex, 1);
+      props.doneTask(false, item.id);
     }
-
-    setChecked(newChecked);
   };
 
   const handleDeleteNote = id => {
@@ -54,8 +48,8 @@ const NoteList = props => {
             <ListItemIcon>
               <Checkbox
                 edge="start"
-                onClick={handleToggle(item)}
-                checked={checked.indexOf(item) !== -1}
+                onClick={() => handleToggle(item)}
+                checked={item.done === true}
                 tabIndex={-1}
                 disableRipple
                 inputProps={{ 'aria-labelledby': item.id }}
@@ -63,6 +57,7 @@ const NoteList = props => {
             </ListItemIcon>
             <ListItemText
               onClick={() => handleActiveMain(item)}
+              className={item.done === true ? 'done' : ''}
               id={item.id}
               primary={item.task}
               secondary={`${item.date}`}
@@ -78,7 +73,7 @@ const NoteList = props => {
           </ListItem>
         ))}
       </List>
-      {checked.length > 1 && <DeleteNotes numberListItem={tasks.length} selectedNotes={checked} />}
+      {tasks.some(item => item.done === true) === true && <DeleteNotes selectedNotes={tasks} />}
     </div>
   );
 };
@@ -87,12 +82,14 @@ NoteList.propTypes = {
   tasks: PropTypes.array.isRequired,
   deleteTask: PropTypes.func.isRequired,
   activeMain: PropTypes.func.isRequired,
+  doneTask: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     deleteTask: bindActionCreators(deleteTask, dispatch),
     activeMain: bindActionCreators(activeMain, dispatch),
+    doneTask: bindActionCreators(doneTask, dispatch),
   };
 };
 

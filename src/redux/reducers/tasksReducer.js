@@ -13,9 +13,21 @@ export default function tasksReducer(state = tasks, action) {
           .split('T')[0]
           .replace('-', '/'),
         id: shortid.generate(),
+        done: false,
       });
 
       return [...state, taskWidthData];
+    }
+    case type.DONE_TASK: {
+      let doneTask = [...state];
+      doneTask = doneTask.map(item => {
+        if (item.id === action.payload.id) {
+          item.done = action.payload.isDone;
+        }
+        return item;
+      });
+
+      return doneTask;
     }
     case type.DELETE_TASK: {
       return state.filter(taskItem => taskItem.id !== action.payload.id);
