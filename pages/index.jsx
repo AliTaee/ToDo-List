@@ -30,7 +30,11 @@ const Index = props => {
             <ViewNotes />
           </Grid>
           <Grid className="main" item xs={12} sm={12} md={9}>
-            {active.name === 'create' ? <CreateNote /> : <ViewNote />}
+            {active.name === 'create' || active.name === 'edit' ? (
+              <CreateNote activeData={active} />
+            ) : (
+              <ViewNote />
+            )}
           </Grid>
         </Grid>
       </Container>

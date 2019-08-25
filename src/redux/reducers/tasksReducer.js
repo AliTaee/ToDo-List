@@ -18,17 +18,6 @@ export default function tasksReducer(state = tasks, action) {
 
       return [...state, taskWidthData];
     }
-    case type.DONE_TASK: {
-      let doneTask = [...state];
-      doneTask = doneTask.map(item => {
-        if (item.id === action.payload.id) {
-          item.done = action.payload.isDone;
-        }
-        return item;
-      });
-
-      return doneTask;
-    }
     case type.DELETE_TASK: {
       return state.filter(taskItem => taskItem.id !== action.payload.id);
     }
@@ -39,6 +28,38 @@ export default function tasksReducer(state = tasks, action) {
       }
 
       return deleteNotes;
+    }
+    case type.EDIT_TASK: {
+      let editTask = [...state];
+      editTask = editTask.map(item => {
+        if (item.id === action.payload.item.id) {
+          item = Object.assign({}, action.payload.item, {
+            id: action.payload.item.id,
+            title: action.payload.item.title,
+            content: action.payload.item.content,
+            done: action.payload.item.done,
+            date: new Date()
+              .toISOString()
+              .replace('-', '/')
+              .split('T')[0]
+              .replace('-', '/'),
+          });
+        }
+        return item;
+      });
+
+      return editTask;
+    }
+    case type.DONE_TASK: {
+      let doneTask = [...state];
+      doneTask = doneTask.map(item => {
+        if (item.id === action.payload.id) {
+          item.done = action.payload.isDone;
+        }
+        return item;
+      });
+
+      return doneTask;
     }
 
     default:

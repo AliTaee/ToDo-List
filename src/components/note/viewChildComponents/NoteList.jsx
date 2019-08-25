@@ -25,7 +25,7 @@ const NoteList = props => {
   const { tasks } = props;
 
   const handleActiveMain = item => {
-    props.activeMain('singleNote', item.task, item.content, item.date);
+    props.activeMain('singleNote', item.title, item.content, item.date);
   };
 
   const handleToggle = item => {
@@ -42,6 +42,10 @@ const NoteList = props => {
     if (tasks.length === 1) {
       props.activeMain('create');
     }
+  };
+
+  const handleEditNote = item => {
+    props.activeMain('edit', item.title, item.content, item.date, item.id, item.done);
   };
 
   return (
@@ -63,14 +67,14 @@ const NoteList = props => {
               onClick={() => handleActiveMain(item)}
               className={item.done === true ? 'done' : ''}
               id={item.id}
-              primary={item.task}
+              primary={item.title}
               secondary={`${item.date}`}
             />
             <ListItemSecondaryAction>
               <IconButton onClick={() => handleDeleteNote(item.id)} edge="end" aria-label="delete">
                 <DeleteIcon />
               </IconButton>
-              <IconButton edge="end" aria-label="edit">
+              <IconButton onClick={() => handleEditNote(item)} edge="end" aria-label="edit">
                 <EditIcon />
               </IconButton>
             </ListItemSecondaryAction>
