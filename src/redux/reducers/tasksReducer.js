@@ -33,7 +33,8 @@ export default function tasksReducer(state = tasks, action) {
       let editTask = [...state];
       editTask = editTask.map(item => {
         if (item.id === action.payload.item.id) {
-          item = Object.assign({}, action.payload.item, {
+          item = {
+            ...item,
             id: action.payload.item.id,
             title: action.payload.item.title,
             content: action.payload.item.content,
@@ -43,7 +44,7 @@ export default function tasksReducer(state = tasks, action) {
               .replace('-', '/')
               .split('T')[0]
               .replace('-', '/'),
-          });
+          };
         }
         return item;
       });
@@ -54,7 +55,10 @@ export default function tasksReducer(state = tasks, action) {
       let doneTask = [...state];
       doneTask = doneTask.map(item => {
         if (item.id === action.payload.id) {
-          item.done = action.payload.isDone;
+          item = {
+            ...item,
+            done: action.payload.isDone,
+          };
         }
         return item;
       });
