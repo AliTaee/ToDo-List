@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 // Redux
 import { bindActionCreators } from 'redux';
@@ -22,10 +23,10 @@ import EditIcon from '@material-ui/icons/Edit';
 import DeleteNotes from './DeleteNotes';
 
 const NoteList = props => {
-  const { tasks } = props;
+  const { tasks, active } = props;
 
   const handleActiveMain = item => {
-    props.activeMain('singleNote', item.task, item.content, item.date);
+    props.activeMain('singleNote', item.title, item.content, item.date, item.id, item.done);
   };
 
   const handleToggle = item => {
@@ -39,9 +40,13 @@ const NoteList = props => {
   const handleDeleteNote = id => {
     props.deleteTask(id);
 
-    if (tasks.length === 1) {
+    if (active.id == id || tasks.length === 1) {
       props.activeMain('create');
     }
+  };
+
+  const handleEditNote = item => {
+    props.activeMain('edit', item.title, item.content, item.date, item.id, item.done);
   };
 
   return (
@@ -59,20 +64,24 @@ const NoteList = props => {
                 inputProps={{ 'aria-labelledby': item.id }}
               />
             </ListItemIcon>
-            <ListItemText
-              onClick={() => handleActiveMain(item)}
-              className={item.done === true ? 'done' : ''}
-              id={item.id}
-              primary={item.task}
-              secondary={`${item.date}`}
-            />
+            <Link href="/">
+              <ListItemText
+                onClick={() => handleActiveMain(item)}
+                className={item.done === true ? 'done' : ''}
+                id={item.id}
+                primary={item.title}
+                secondary={`${item.date}`}
+              />
+            </Link>
             <ListItemSecondaryAction>
               <IconButton onClick={() => handleDeleteNote(item.id)} edge="end" aria-label="delete">
                 <DeleteIcon />
               </IconButton>
-              <IconButton edge="end" aria-label="edit">
-                <EditIcon />
-              </IconButton>
+              <Link href={`/edit?id=${item.id}`}>
+                <IconButton onClick={() => handleEditNote(item)} edge="end" aria-label="edit">
+                  <EditIcon />
+                </IconButton>
+              </Link>
             </ListItemSecondaryAction>
           </ListItem>
         ))}
@@ -83,6 +92,7 @@ const NoteList = props => {
 };
 
 NoteList.propTypes = {
+  active: PropTypes.object.isRequired,
   tasks: PropTypes.array.isRequired,
   deleteTask: PropTypes.func.isRequired,
   activeMain: PropTypes.func.isRequired,
@@ -97,7 +107,13 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
+const mapStateToProps = state => {
+  return {
+    active: state.mainReducer,
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(NoteList);

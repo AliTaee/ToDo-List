@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 // Redux
 import { connect } from 'react-redux';
@@ -23,10 +24,12 @@ const View = props => {
   return (
     <section className="note-list-container">
       <h3>Note List</h3>
-      {active.name === 'singleNote' && (
-        <Button onClick={activeAddNote} className="add-note" variant="contained" color="primary">
-          Add Note <EditIcon />
-        </Button>
+      {active.name !== 'create' && (
+        <Link href="/">
+          <Button onClick={activeAddNote} className="add-note" variant="contained" color="primary">
+            Add Note <EditIcon />
+          </Button>
+        </Link>
       )}
       {tasks.length === 0 ? <p>No notes yet.</p> : <NoteList tasks={tasks} />}
     </section>
