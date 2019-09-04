@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 // Materail UI
 import TextField from '@material-ui/core/TextField';
@@ -31,9 +32,7 @@ const CreateNotes = props => {
     event.preventDefault();
 
     if (taskName === '' || taskName === undefined) {
-      setError(true);
-      setMassage(false);
-      titleNote.current.focus();
+      titleIsEmpty();
       return;
     }
 
@@ -47,6 +46,12 @@ const CreateNotes = props => {
     clearForm();
   };
 
+  const titleIsEmpty = () => {
+    setError(true);
+    setMassage(false);
+    titleNote.current.focus();
+  };
+
   const handleTaskName = e => {
     setTaskTitle(e.target.value);
   };
@@ -57,6 +62,12 @@ const CreateNotes = props => {
 
   const saveNote = event => {
     event.preventDefault();
+
+    if (taskName === '' || taskName === undefined) {
+      titleIsEmpty();
+      return;
+    }
+
     const newEditTask = Object.assign({}, activeData, {
       title: taskName,
       content: taskContent,
@@ -117,11 +128,20 @@ const CreateNotes = props => {
             Create Note
           </Button>
         ) : (
-          <Button onClick={saveNote} variant="contained" color="primary">
-            Save Note
-          </Button>
+          <span onClick={saveNote}>
+            {taskName === '' || taskName === undefined ? (
+              <Button variant="contained" color="primary">
+                Save Note
+              </Button>
+            ) : (
+              <Link href="/">
+                <Button variant="contained" color="primary">
+                  Save Note
+                </Button>
+              </Link>
+            )}
+          </span>
         )}
-
         {activeData.name === 'edit' && (
           <Button onClick={clearForm} className="reset-form" variant="contained" color="secondary">
             Clear
