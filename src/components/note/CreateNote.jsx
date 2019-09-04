@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 
 // Materail UI
 import TextField from '@material-ui/core/TextField';
@@ -11,13 +10,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { addTask, editTask } from '../../redux/actions/actionTasks';
 import { activeMain } from '../../redux/actions/actionMain';
-
-const AddButton = React.forwardRef(({ onClick, href }, ref) => (
-  <a href={href} onClick={onClick} ref={ref}>
-    Click Me
-  </a>
-))
-
 
 const CreateNotes = props => {
   const { activeData } = props;
