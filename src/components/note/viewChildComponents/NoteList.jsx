@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 // Redux
 import { bindActionCreators } from 'redux';
@@ -63,20 +64,24 @@ const NoteList = props => {
                 inputProps={{ 'aria-labelledby': item.id }}
               />
             </ListItemIcon>
-            <ListItemText
-              onClick={() => handleActiveMain(item)}
-              className={item.done === true ? 'done' : ''}
-              id={item.id}
-              primary={item.title}
-              secondary={`${item.date}`}
-            />
+            <Link href="/">
+              <ListItemText
+                onClick={() => handleActiveMain(item)}
+                className={item.done === true ? 'done' : ''}
+                id={item.id}
+                primary={item.title}
+                secondary={`${item.date}`}
+              />
+            </Link>
             <ListItemSecondaryAction>
               <IconButton onClick={() => handleDeleteNote(item.id)} edge="end" aria-label="delete">
                 <DeleteIcon />
               </IconButton>
-              <IconButton onClick={() => handleEditNote(item)} edge="end" aria-label="edit">
-                <EditIcon />
-              </IconButton>
+              <Link href={`/edit?id=${item.id}`}>
+                <IconButton onClick={() => handleEditNote(item)} edge="end" aria-label="edit">
+                  <EditIcon />
+                </IconButton>
+              </Link>
             </ListItemSecondaryAction>
           </ListItem>
         ))}

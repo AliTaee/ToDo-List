@@ -11,14 +11,13 @@ import Grid from '@material-ui/core/Grid';
 // Components
 import Head from '../src/components/layout/Head';
 import Menu from '../src/components/navigation/Menu';
-import CreateNote from '../src/components/note/CreateNote';
 import ViewNotes from '../src/components/note/ViewNotes';
-import ViewNote from '../src/components/note/ViewNote';
+import CreateNote from '../src/components/note/CreateNote';
 
 // Styles
 import '../src/styles/style.scss';
 
-const Index = props => {
+const Edit = props => {
   const { active } = props;
   return (
     <main>
@@ -30,7 +29,7 @@ const Index = props => {
             <ViewNotes />
           </Grid>
           <Grid className="main" item xs={12} sm={12} md={9}>
-            {active.name === 'create' ? <CreateNote activeData={active} /> : <ViewNote />}
+            <CreateNote activeData={active} />
           </Grid>
         </Grid>
       </Container>
@@ -38,7 +37,7 @@ const Index = props => {
   );
 };
 
-Index.propTypes = {
+Edit.propTypes = {
   active: PropTypes.object.isRequired,
 };
 
@@ -51,4 +50,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   null,
-)(Index);
+)(Edit);
