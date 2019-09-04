@@ -23,10 +23,10 @@ import EditIcon from '@material-ui/icons/Edit';
 import DeleteNotes from './DeleteNotes';
 
 const NoteList = props => {
-  const { tasks } = props;
+  const { tasks, active } = props;
 
   const handleActiveMain = item => {
-    props.activeMain('singleNote', item.title, item.content, item.date);
+    props.activeMain('singleNote', item.title, item.content, item.date, item.id, item.done);
   };
 
   const handleToggle = item => {
@@ -40,7 +40,7 @@ const NoteList = props => {
   const handleDeleteNote = id => {
     props.deleteTask(id);
 
-    if (tasks.length === 1) {
+    if (active.id == id || tasks.length === 1) {
       props.activeMain('create');
     }
   };
@@ -92,6 +92,7 @@ const NoteList = props => {
 };
 
 NoteList.propTypes = {
+  active: PropTypes.object.isRequired,
   tasks: PropTypes.array.isRequired,
   deleteTask: PropTypes.func.isRequired,
   activeMain: PropTypes.func.isRequired,
@@ -106,7 +107,13 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
+const mapStateToProps = state => {
+  return {
+    active: state.mainReducer,
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(NoteList);

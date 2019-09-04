@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 // Redux
 import { bindActionCreators } from 'redux';
@@ -50,6 +51,7 @@ const DeleteNotes = props => {
     const deleteIds = getIds(selectedNotes);
 
     props.deleteTasks(deleteIds);
+    props.activeMain('create');
 
     setOpen(false);
   };
@@ -72,9 +74,13 @@ const DeleteNotes = props => {
           <Button onClick={handleClose} variant="contained" color="primary">
             Cancel
           </Button>
-          <Button onClick={handleDeleteAllNote} variant="contained" color="secondary" autoFocus>
-            Delete
-          </Button>
+          <span onClick={handleDeleteAllNote}>
+            <Link href="/">
+              <Button variant="contained" color="secondary" autoFocus>
+                Delete
+              </Button>
+            </Link>
+          </span>
         </DialogActions>
       </Dialog>
       <Button onClick={handleClickOpen} variant="contained" color="secondary">
