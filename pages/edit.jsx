@@ -12,7 +12,7 @@ import Grid from '@material-ui/core/Grid';
 import Head from '../src/components/layout/Head';
 import Menu from '../src/components/navigation/Menu';
 import ViewNotes from '../src/components/note/ViewNotes';
-import CreateNote from '../src/components/note/CreateNote';
+import EditNote from '../src/components/note/EditNote';
 
 // Styles
 import '../src/styles/style.scss';
@@ -29,7 +29,7 @@ const Edit = props => {
             <ViewNotes />
           </Grid>
           <Grid className="main" item xs={12} sm={12} md={9}>
-            <CreateNote activeData={active} />
+            <EditNote activeData={active} />
           </Grid>
         </Grid>
       </Container>
