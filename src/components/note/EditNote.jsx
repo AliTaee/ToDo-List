@@ -1,5 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 // Materail UI
 import TextField from '@material-ui/core/TextField';
@@ -8,9 +9,11 @@ import Button from '@material-ui/core/Button';
 // Redux
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { addTask } from '../../redux/actions/actionTasks';
+import { editTask } from '../../redux/actions/actionTasks';
+import { activeMain } from '../../redux/actions/actionMain';
 
-const CreateNotes = props => {
+const EditNote = props => {
+  const { activeData } = props;
   let titleNote = useRef(null);
 
   const [taskName, setTaskTitle] = useState('');
@@ -18,23 +21,10 @@ const CreateNotes = props => {
   const [taskNameRequired, setError] = useState([false]);
   const [successCreate, setMassage] = useState([false]);
 
-  const createNote = event => {
-    event.preventDefault();
-
-    if (taskName === '' || taskName === undefined) {
-      titleIsEmpty();
-      return;
-    }
-
-    const newTask = {
-      title: taskName,
-      content: taskContent,
-    };
-
-    props.addTask(newTask);
-
-    clearForm();
-  };
+  useEffect(() => {
+    setTaskTitle(activeData.title);
+    setTaskContent(activeData.content);
+  }, [activeData]);
 
   const titleIsEmpty = () => {
     setError(true);
@@ -50,6 +40,28 @@ const CreateNotes = props => {
     setTaskContent(e.target.value);
   };
 
+  const saveNote = event => {
+    event.preventDefault();
+
+    if (taskName === '' || taskName === undefined) {
+      titleIsEmpty();
+      return;
+    }
+
+    const newEditTask = Object.assign({}, activeData, {
+      title: taskName,
+      content: taskContent,
+      date: new Date()
+        .toISOString()
+        .replace('-', '/')
+        .split('T')[0]
+        .replace('-', '/'),
+    });
+    props.editTask(newEditTask);
+    props.activeMain('create');
+    clearForm();
+  };
+
   const clearForm = () => {
     setTaskTitle('');
     setTaskContent('');
@@ -60,7 +72,7 @@ const CreateNotes = props => {
 
   return (
     <section id="create-note">
-      <h2>Add Note</h2>
+      <h2>Edit Note</h2>
       <form noValidate autoComplete="off">
         <TextField
           required
@@ -91,8 +103,21 @@ const CreateNotes = props => {
           value={taskContent}
           aria-label="note content"
         />
-        <Button onClick={createNote} type="submit" variant="contained" color="primary">
-          Create Note
+        <span onClick={saveNote}>
+          {taskName === '' || taskName === undefined ? (
+            <Button variant="contained" color="primary">
+              Save Note
+            </Button>
+          ) : (
+            <Link href="/">
+              <Button variant="contained" color="primary">
+                Save Note
+              </Button>
+            </Link>
+          )}
+        </span>
+        <Button onClick={clearForm} className="reset-form" variant="contained" color="secondary">
+          Clear
         </Button>
       </form>
       {successCreate === true && <p className="mobile success message">Note saved successfully.</p>}
@@ -100,17 +125,20 @@ const CreateNotes = props => {
   );
 };
 
-CreateNotes.propTypes = {
-  addTask: PropTypes.func.isRequired,
+EditNote.propTypes = {
+  activeData: PropTypes.object.isRequired,
+  editTask: PropTypes.func.isRequired,
+  activeMain: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    addTask: bindActionCreators(addTask, dispatch),
+    editTask: bindActionCreators(editTask, dispatch),
+    activeMain: bindActionCreators(activeMain, dispatch),
   };
 };
 
 export default connect(
   null,
   mapDispatchToProps,
-)(CreateNotes);
+)(EditNote);
