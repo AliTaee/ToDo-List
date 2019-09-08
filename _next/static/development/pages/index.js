@@ -37344,6 +37344,7 @@ var NoteList = function NoteList(props) {
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
       href: "/",
+      as: "/",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 67
@@ -37387,6 +37388,7 @@ var NoteList = function NoteList(props) {
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
       href: "/edit?id=".concat(item.id),
+      as: "" + "/edit?id=".concat(item.id),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 80
@@ -37400,13 +37402,13 @@ var NoteList = function NoteList(props) {
       "aria-label": "edit",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 81
+        lineNumber: 84
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_Edit__WEBPACK_IMPORTED_MODULE_15___default.a, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 82
+        lineNumber: 85
       },
       __self: this
     })))));
@@ -37416,7 +37418,7 @@ var NoteList = function NoteList(props) {
     selectedNotes: tasks,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89
+      lineNumber: 92
     },
     __self: this
   }));
