@@ -37367,7 +37367,7 @@ var NoteList = function NoteList(props) {
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
       href: "/edit?id=".concat(item.id),
-      as: "" + "/edit?id=".concat(item.id),
+      as: "".concat("", "/edit?id=").concat(item.id),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 80
