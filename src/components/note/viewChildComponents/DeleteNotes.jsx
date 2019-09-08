@@ -75,7 +75,7 @@ const DeleteNotes = props => {
             Cancel
           </Button>
           <span onClick={handleDeleteAllNote}>
-            <Link href="/">
+            <Link href="/" as={process.env.BACKEND_URL + '/'}>
               <Button variant="contained" color="secondary" autoFocus>
                 Delete
               </Button>

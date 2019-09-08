@@ -25,7 +25,7 @@ const View = props => {
     <section className="note-list-container">
       <h3>Note List</h3>
       {active.name !== 'create' && (
-        <Link href="/">
+        <Link href="/" as={process.env.BACKEND_URL + '/'}>
           <Button onClick={activeAddNote} className="add-note" variant="contained" color="primary">
             Add Note <EditIcon />
           </Button>

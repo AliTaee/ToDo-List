@@ -11,7 +11,7 @@ const Menu = () => (
     <nav>
       <ul>
         <li className="nav-item">
-          <Link href="/">
+          <Link href="/" as={process.env.BACKEND_URL + '/'}>
             <div>
               <HomeIcon />
               <span>Home</span>
@@ -19,7 +19,7 @@ const Menu = () => (
           </Link>
         </li>
         <li className="nav-item">
-          <Link href="/about">
+          <Link href="/about" as={process.env.BACKEND_URL + '/about'}>
             <div>
               <InfoIcon />
               <span>About Todo List</span>

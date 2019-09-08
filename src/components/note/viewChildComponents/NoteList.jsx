@@ -64,7 +64,7 @@ const NoteList = props => {
                 inputProps={{ 'aria-labelledby': item.id }}
               />
             </ListItemIcon>
-            <Link href="/">
+            <Link href="/" as={process.env.BACKEND_URL + '/'}>
               <ListItemText
                 onClick={() => handleActiveMain(item)}
                 className={item.done === true ? 'done' : ''}
@@ -77,7 +77,10 @@ const NoteList = props => {
               <IconButton onClick={() => handleDeleteNote(item.id)} edge="end" aria-label="delete">
                 <DeleteIcon />
               </IconButton>
-              <Link href={`/edit?id=${item.id}`}>
+              <Link
+                href={`/edit?id=${item.id}`}
+                as={`${process.env.BACKEND_URL}/edit?id=${item.id}`}
+              >
                 <IconButton onClick={() => handleEditNote(item)} edge="end" aria-label="edit">
                   <EditIcon />
                 </IconButton>

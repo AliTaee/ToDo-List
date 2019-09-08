@@ -1,3 +1,28 @@
+require('dotenv').config();
+const debug = process.env.NODE_ENV !== 'production';
 const withSass = require('@zeit/next-sass');
+const withCSS = require('@zeit/next-css');
 
-module.exports = withSass();
+module.exports = withCSS(
+  withSass({
+    exportPathMap: () => ({
+      '/': { page: '/' },
+      '/about': { page: '/about' },
+      '/edit': { page: '/edit' },
+    }),
+    assetPrefix: !debug ? '/Todo-list/' : '',
+    webpack(config) {
+      config.module.rules.push({
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 100000,
+          },
+        },
+      });
+
+      return config;
+    },
+  }),
+);

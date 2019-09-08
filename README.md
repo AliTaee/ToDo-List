@@ -32,6 +32,9 @@ npm run build
 
 # serve build production at localhost:3000
 npm start
+
+# deploy code on github page project
+npm run deploy
 ```
 
 For detailed explanation on how things work, checkout the [react](https://reactjs.org), [docs for redux](https://redux.js.org/), [docs for next.js](https://nextjs.org/).
