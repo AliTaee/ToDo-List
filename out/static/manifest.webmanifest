@@ -1,0 +1,14 @@
+{
+  "name": "Todo list",
+  "short_name": "Todo list",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f0f0f0",
+  "theme_color": "#212121",
+  "description": "A simple Todo list PWA.",
+  "icons": [{
+    "src": "/static/icon.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}
