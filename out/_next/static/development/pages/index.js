@@ -36481,7 +36481,7 @@ var HeadDoc = function HeadDoc() {
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
     rel: "icon",
-    href: "/static/favicon.png",
+    href: "".concat("", "/static/favicon.png"),
     __source: {
       fileName: _jsxFileName,
       lineNumber: 12
@@ -36505,7 +36505,7 @@ var HeadDoc = function HeadDoc() {
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
     type: "text/javascript",
-    src: "/static/pwa_script.js",
+    src: "".concat("", "/static/pwa_script.js"),
     __source: {
       fileName: _jsxFileName,
       lineNumber: 18
