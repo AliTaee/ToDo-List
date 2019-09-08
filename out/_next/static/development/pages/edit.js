@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/index.js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/edit.js"],{
 
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/array/from.js":
 /*!*******************************************************************!*\
@@ -27744,21 +27744,21 @@ exports.formatWithValidation = formatWithValidation;
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2Fhome%2Falitaee%2FProject%2FTodo-list%2Fpages%2Findex.jsx!./":
-/*!************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2Fhome%2Falitaee%2FProject%2FTodo-list%2Fpages%2Findex.jsx ***!
-  \************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fedit&absolutePagePath=%2Fhome%2Falitaee%2FProject%2FTodo-list%2Fpages%2Fedit.jsx!./":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fedit&absolutePagePath=%2Fhome%2Falitaee%2FProject%2FTodo-list%2Fpages%2Fedit.jsx ***!
+  \***************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-    (window.__NEXT_P=window.__NEXT_P||[]).push(["/", function() {
-      var page = __webpack_require__(/*! ./pages/index.jsx */ "./pages/index.jsx")
+    (window.__NEXT_P=window.__NEXT_P||[]).push(["/edit", function() {
+      var page = __webpack_require__(/*! ./pages/edit.jsx */ "./pages/edit.jsx")
       if(true) {
-        module.hot.accept(/*! ./pages/index.jsx */ "./pages/index.jsx", function() {
-          if(!next.router.components["/"]) return
-          var updatedPage = __webpack_require__(/*! ./pages/index.jsx */ "./pages/index.jsx")
-          next.router.update("/", updatedPage.default || updatedPage)
+        module.hot.accept(/*! ./pages/edit.jsx */ "./pages/edit.jsx", function() {
+          if(!next.router.components["/edit"]) return
+          var updatedPage = __webpack_require__(/*! ./pages/edit.jsx */ "./pages/edit.jsx")
+          next.router.update("/edit", updatedPage.default || updatedPage)
         })
       }
       return { page: page.default || page }
@@ -36308,10 +36308,10 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./pages/index.jsx":
-/*!*************************!*\
-  !*** ./pages/index.jsx ***!
-  \*************************/
+/***/ "./pages/edit.jsx":
+/*!************************!*\
+  !*** ./pages/edit.jsx ***!
+  \************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -36326,12 +36326,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
 /* harmony import */ var _src_components_layout_Head__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../src/components/layout/Head */ "./src/components/layout/Head.jsx");
 /* harmony import */ var _src_components_navigation_Menu__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../src/components/navigation/Menu */ "./src/components/navigation/Menu.jsx");
-/* harmony import */ var _src_components_note_CreateNote__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../src/components/note/CreateNote */ "./src/components/note/CreateNote.jsx");
-/* harmony import */ var _src_components_note_ViewNotes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../src/components/note/ViewNotes */ "./src/components/note/ViewNotes.jsx");
-/* harmony import */ var _src_components_note_ViewNote__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../src/components/note/ViewNote */ "./src/components/note/ViewNote.jsx");
-/* harmony import */ var _src_styles_style_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../src/styles/style.scss */ "./src/styles/style.scss");
-/* harmony import */ var _src_styles_style_scss__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_src_styles_style_scss__WEBPACK_IMPORTED_MODULE_10__);
-var _jsxFileName = "/home/alitaee/Project/Todo-list/pages/index.jsx";
+/* harmony import */ var _src_components_note_ViewNotes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../src/components/note/ViewNotes */ "./src/components/note/ViewNotes.jsx");
+/* harmony import */ var _src_components_note_EditNote__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../src/components/note/EditNote */ "./src/components/note/EditNote.jsx");
+/* harmony import */ var _src_styles_style_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../src/styles/style.scss */ "./src/styles/style.scss");
+/* harmony import */ var _src_styles_style_scss__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_src_styles_style_scss__WEBPACK_IMPORTED_MODULE_9__);
+var _jsxFileName = "/home/alitaee/Project/Todo-list/pages/edit.jsx";
 
  // Redux
 
@@ -36343,29 +36342,28 @@ var _jsxFileName = "/home/alitaee/Project/Todo-list/pages/index.jsx";
 
 
 
-
  // Styles
 
 
 
-var Index = function Index(props) {
+var Edit = function Edit(props) {
   var active = props.active;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 23
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_layout_Head__WEBPACK_IMPORTED_MODULE_5__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 24
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 25
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -36373,7 +36371,7 @@ var Index = function Index(props) {
     spacing: 0,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 26
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -36384,19 +36382,19 @@ var Index = function Index(props) {
     md: 3,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28
+      lineNumber: 27
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_navigation_Menu__WEBPACK_IMPORTED_MODULE_6__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 28
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_note_ViewNotes__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_note_ViewNotes__WEBPACK_IMPORTED_MODULE_7__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 29
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -36407,26 +36405,20 @@ var Index = function Index(props) {
     md: 9,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 31
     },
     __self: this
-  }, active.name === 'create' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_note_CreateNote__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_note_EditNote__WEBPACK_IMPORTED_MODULE_8__["default"], {
     activeData: active,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
-    },
-    __self: this
-  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_note_ViewNote__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 32
     },
     __self: this
   })))));
 };
 
-Index.propTypes = {
+Edit.propTypes = {
   active: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired
 };
 
@@ -36436,7 +36428,7 @@ var mapStateToProps = function mapStateToProps(state) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, null)(Index));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, null)(Edit));
 
 /***/ }),
 
@@ -36640,27 +36632,34 @@ var Menu = function Menu() {
 
 /***/ }),
 
-/***/ "./src/components/note/CreateNote.jsx":
-/*!********************************************!*\
-  !*** ./src/components/note/CreateNote.jsx ***!
-  \********************************************/
+/***/ "./src/components/note/EditNote.jsx":
+/*!******************************************!*\
+  !*** ./src/components/note/EditNote.jsx ***!
+  \******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js");
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _redux_actions_actionTasks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../redux/actions/actionTasks */ "./src/redux/actions/actionTasks.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/assign */ "./node_modules/@babel/runtime-corejs2/core-js/object/assign.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _redux_actions_actionTasks__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../redux/actions/actionTasks */ "./src/redux/actions/actionTasks.js");
+/* harmony import */ var _redux_actions_actionMain__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../redux/actions/actionMain */ "./src/redux/actions/actionMain.js");
 
-var _jsxFileName = "/home/alitaee/Project/Todo-list/src/components/note/CreateNote.jsx";
+
+var _jsxFileName = "/home/alitaee/Project/Todo-list/src/components/note/EditNote.jsx";
+
 
  // Materail UI
 
@@ -36671,44 +36670,35 @@ var _jsxFileName = "/home/alitaee/Project/Todo-list/src/components/note/CreateNo
 
 
 
-var CreateNotes = function CreateNotes(props) {
-  var titleNote = Object(react__WEBPACK_IMPORTED_MODULE_1__["useRef"])(null);
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''),
-      _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
+var EditNote = function EditNote(props) {
+  var activeData = props.activeData;
+  var titleNote = Object(react__WEBPACK_IMPORTED_MODULE_2__["useRef"])(null);
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(''),
+      _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState, 2),
       taskName = _useState2[0],
       setTaskTitle = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''),
-      _useState4 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState3, 2),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(''),
+      _useState4 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState3, 2),
       taskContent = _useState4[0],
       setTaskContent = _useState4[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([false]),
-      _useState6 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState5, 2),
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([false]),
+      _useState6 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState5, 2),
       taskNameRequired = _useState6[0],
       setError = _useState6[1];
 
-  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([false]),
-      _useState8 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState7, 2),
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([false]),
+      _useState8 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState7, 2),
       successCreate = _useState8[0],
       setMassage = _useState8[1];
 
-  var createNote = function createNote(event) {
-    event.preventDefault();
-
-    if (taskName === '' || taskName === undefined) {
-      titleIsEmpty();
-      return;
-    }
-
-    var newTask = {
-      title: taskName,
-      content: taskContent
-    };
-    props.addTask(newTask);
-    clearForm();
-  };
+  Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
+    setTaskTitle(activeData.title);
+    setTaskContent(activeData.content);
+  }, [activeData]);
 
   var titleIsEmpty = function titleIsEmpty() {
     setError(true);
@@ -36724,6 +36714,25 @@ var CreateNotes = function CreateNotes(props) {
     setTaskContent(e.target.value);
   };
 
+  var saveNote = function saveNote(event) {
+    event.preventDefault();
+
+    if (taskName === '' || taskName === undefined) {
+      titleIsEmpty();
+      return;
+    }
+
+    var newEditTask = _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_0___default()({}, activeData, {
+      title: taskName,
+      content: taskContent,
+      date: new Date().toISOString().replace('-', '/').split('T')[0].replace('-', '/')
+    });
+
+    props.editTask(newEditTask);
+    props.activeMain('create');
+    clearForm();
+  };
+
   var clearForm = function clearForm() {
     setTaskTitle('');
     setTaskContent('');
@@ -36732,28 +36741,28 @@ var CreateNotes = function CreateNotes(props) {
     titleNote.current.focus();
   };
 
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("section", {
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("section", {
     id: "create-note",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 74
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", {
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63
+      lineNumber: 75
     },
     __self: this
-  }, "Add Note"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+  }, "Edit Note"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("form", {
     noValidate: true,
     autoComplete: "off",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 76
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__["default"], {
     required: true,
     label: "Note Title",
     classes: {
@@ -36771,10 +36780,10 @@ var CreateNotes = function CreateNotes(props) {
     name: "text",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65
+      lineNumber: 77
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__["default"], {
     multiline: true,
     label: "Note Content",
     classes: {
@@ -36791,104 +36800,74 @@ var CreateNotes = function CreateNotes(props) {
     "aria-label": "note content",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80
+      lineNumber: 92
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    onClick: createNote,
-    type: "submit",
+  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
+    onClick: saveNote,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 106
+    },
+    __self: this
+  }, taskName === '' || taskName === undefined ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
     variant: "contained",
     color: "primary",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94
+      lineNumber: 108
     },
     __self: this
-  }, "Create Note")), successCreate === true && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+  }, "Save Note") : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    href: "/",
+    as: "/",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 112
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    variant: "contained",
+    color: "primary",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 113
+    },
+    __self: this
+  }, "Save Note"))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    onClick: clearForm,
+    className: "reset-form",
+    variant: "contained",
+    color: "secondary",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 119
+    },
+    __self: this
+  }, "Clear")), successCreate === true && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
     className: "mobile success message",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98
+      lineNumber: 123
     },
     __self: this
   }, "Note saved successfully."));
 };
 
-CreateNotes.propTypes = {
-  addTask: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func.isRequired
+EditNote.propTypes = {
+  activeData: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+  editTask: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func.isRequired,
+  activeMain: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func.isRequired
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    addTask: Object(redux__WEBPACK_IMPORTED_MODULE_5__["bindActionCreators"])(_redux_actions_actionTasks__WEBPACK_IMPORTED_MODULE_7__["addTask"], dispatch)
+    editTask: Object(redux__WEBPACK_IMPORTED_MODULE_7__["bindActionCreators"])(_redux_actions_actionTasks__WEBPACK_IMPORTED_MODULE_9__["editTask"], dispatch),
+    activeMain: Object(redux__WEBPACK_IMPORTED_MODULE_7__["bindActionCreators"])(_redux_actions_actionMain__WEBPACK_IMPORTED_MODULE_10__["activeMain"], dispatch)
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_6__["connect"])(null, mapDispatchToProps)(CreateNotes));
-
-/***/ }),
-
-/***/ "./src/components/note/ViewNote.jsx":
-/*!******************************************!*\
-  !*** ./src/components/note/ViewNote.jsx ***!
-  \******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-var _jsxFileName = "/home/alitaee/Project/Todo-list/src/components/note/ViewNote.jsx";
-
- // Redux
-
-
-
-var ViewNote = function ViewNote(props) {
-  var activeMain = props.activeMain;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", {
-    className: "note-content",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11
-    },
-    __self: this
-  }, activeMain.title, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13
-    },
-    __self: this
-  }, " (", activeMain.date, ")")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 15
-    },
-    __self: this
-  }, activeMain.content));
-};
-
-ViewNote.propTypes = {
-  activeMain: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired
-};
-
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    activeMain: state.mainReducer
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, null)(ViewNote));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_8__["connect"])(null, mapDispatchToProps)(EditNote));
 
 /***/ }),
 
@@ -37560,14 +37539,14 @@ var ACTIVE_MAIN = 'ACTIVE_MAIN';
 
 /***/ }),
 
-/***/ 3:
-/*!****************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2Fhome%2Falitaee%2FProject%2FTodo-list%2Fpages%2Findex.jsx ***!
-  \****************************************************************************************************************************/
+/***/ 4:
+/*!*******************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Fedit&absolutePagePath=%2Fhome%2Falitaee%2FProject%2FTodo-list%2Fpages%2Fedit.jsx ***!
+  \*******************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absolutePagePath=%2Fhome%2Falitaee%2FProject%2FTodo-list%2Fpages%2Findex.jsx! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2Fhome%2Falitaee%2FProject%2FTodo-list%2Fpages%2Findex.jsx!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fedit&absolutePagePath=%2Fhome%2Falitaee%2FProject%2FTodo-list%2Fpages%2Fedit.jsx! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fedit&absolutePagePath=%2Fhome%2Falitaee%2FProject%2FTodo-list%2Fpages%2Fedit.jsx!./");
 
 
 /***/ }),
@@ -37583,5 +37562,5 @@ module.exports = dll_7aff549c98b978433226;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js","styles"]]]);
-//# sourceMappingURL=index.js.map
+},[[4,"static/runtime/webpack.js","styles"]]]);
+//# sourceMappingURL=edit.js.map
