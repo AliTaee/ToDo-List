@@ -109,7 +109,7 @@ const EditNote = props => {
               Save Note
             </Button>
           ) : (
-            <Link href="/">
+            <Link href="/" as={process.env.BACKEND_URL + '/'}>
               <Button variant="contained" color="primary">
                 Save Note
               </Button>
