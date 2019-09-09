@@ -36718,6 +36718,10 @@ var CreateNotes = function CreateNotes(props) {
       successCreate = _useState8[0],
       setMassage = _useState8[1];
 
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+    titleNote.current.focus();
+  }, []);
+
   var createNote = function createNote(event) {
     event.preventDefault();
 
@@ -36760,13 +36764,13 @@ var CreateNotes = function CreateNotes(props) {
     id: "create-note",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 65
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63
+      lineNumber: 66
     },
     __self: this
   }, "Add Note"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
@@ -36774,7 +36778,7 @@ var CreateNotes = function CreateNotes(props) {
     autoComplete: "off",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 67
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -36794,7 +36798,7 @@ var CreateNotes = function CreateNotes(props) {
     name: "text",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65
+      lineNumber: 68
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -36814,7 +36818,7 @@ var CreateNotes = function CreateNotes(props) {
     "aria-label": "note content",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79
+      lineNumber: 82
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -36824,14 +36828,14 @@ var CreateNotes = function CreateNotes(props) {
     color: "primary",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93
+      lineNumber: 96
     },
     __self: this
   }, "Create Note")), successCreate === true && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
     className: "mobile success message",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 97
+      lineNumber: 100
     },
     __self: this
   }, "Note saved successfully."));
