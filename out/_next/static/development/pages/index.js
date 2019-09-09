@@ -36787,7 +36787,6 @@ var CreateNotes = function CreateNotes(props) {
     type: "text",
     id: "title-task",
     fullWidth: true,
-    autoFocus: true,
     inputRef: titleNote,
     onChange: handleTaskName,
     error: taskNameRequired === true,
@@ -36815,7 +36814,7 @@ var CreateNotes = function CreateNotes(props) {
     "aria-label": "note content",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80
+      lineNumber: 79
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -36825,14 +36824,14 @@ var CreateNotes = function CreateNotes(props) {
     color: "primary",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94
+      lineNumber: 93
     },
     __self: this
   }, "Create Note")), successCreate === true && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
     className: "mobile success message",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98
+      lineNumber: 97
     },
     __self: this
   }, "Note saved successfully."));
