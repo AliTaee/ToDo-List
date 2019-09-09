@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // Materail UI
@@ -12,11 +12,14 @@ import { addTask } from '../../redux/actions/actionTasks';
 
 const CreateNotes = props => {
   let titleNote = useRef(null);
-
   const [taskName, setTaskTitle] = useState('');
   const [taskContent, setTaskContent] = useState('');
   const [taskNameRequired, setError] = useState([false]);
   const [successCreate, setMassage] = useState([false]);
+
+  useEffect(() => {
+    titleNote.current.focus();
+  }, []);
 
   const createNote = event => {
     event.preventDefault();
@@ -70,7 +73,6 @@ const CreateNotes = props => {
           type="text"
           id="title-task"
           fullWidth
-          autoFocus
           inputRef={titleNote}
           onChange={handleTaskName}
           error={taskNameRequired === true}
