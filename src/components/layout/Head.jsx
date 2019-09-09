@@ -20,7 +20,7 @@ const HeadDoc = () => (
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
     />
-    <script type="text/javascript" src={`${process.env.BACKEND_URLS}/static/pwa_script.js`} />
+    <script type="text/javascript" src={`${process.env.BACKEND_URL}/static/pwa_script.js`} />
   </Head>
 );
 
