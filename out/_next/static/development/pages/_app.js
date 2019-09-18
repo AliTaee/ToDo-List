@@ -44,6 +44,17 @@ module.exports = __webpack_require__(/*! core-js/library/fn/is-iterable */ "./no
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/json/stringify */ "./node_modules/core-js/library/fn/json/stringify.js");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/object/assign.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/object/assign.js ***!
@@ -1071,6 +1082,22 @@ module.exports = __webpack_require__(/*! ../modules/core.get-iterator */ "./node
 __webpack_require__(/*! ../modules/web.dom.iterable */ "./node_modules/core-js/library/modules/web.dom.iterable.js");
 __webpack_require__(/*! ../modules/es6.string.iterator */ "./node_modules/core-js/library/modules/es6.string.iterator.js");
 module.exports = __webpack_require__(/*! ../modules/core.is-iterable */ "./node_modules/core-js/library/modules/core.is-iterable.js");
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/fn/json/stringify.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/library/fn/json/stringify.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var core = __webpack_require__(/*! ../../modules/_core */ "./node_modules/core-js/library/modules/_core.js");
+var $JSON = core.JSON || (core.JSON = { stringify: JSON.stringify });
+module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
+  return $JSON.stringify.apply($JSON, arguments);
+};
 
 
 /***/ }),
@@ -12083,21 +12110,69 @@ function (_App) {
 
 /***/ }),
 
-/***/ "./src/redux/actions/actionTypes.js":
-/*!******************************************!*\
-  !*** ./src/redux/actions/actionTypes.js ***!
-  \******************************************/
-/*! exports provided: ADD_TASK, DELETE_TASK, DELETE_TASKS, EDIT_TASK, DONE_TASK, ACTIVE_MAIN */
+/***/ "./src/localStorage.js":
+/*!*****************************!*\
+  !*** ./src/localStorage.js ***!
+  \*****************************/
+/*! exports provided: loadState, saveState */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadState", function() { return loadState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "saveState", function() { return saveState; });
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/*
+ * load data from localStorage
+ */
+var loadState = function loadState() {
+  try {
+    var serializedState = localStorage.getItem('state');
+
+    if (serializedState === null) {
+      return undefined;
+    }
+
+    return JSON.parse(serializedState);
+  } catch (err) {
+    return undefined;
+  }
+};
+/*
+ * Save data to localStorage
+ */
+
+var saveState = function saveState(state) {
+  try {
+    var serializedState = _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(state);
+
+    localStorage.setItem('state', serializedState);
+  } catch (_unused) {// ignore write errors
+  }
+};
+
+/***/ }),
+
+/***/ "./src/redux/actions/actionTypes.js":
+/*!******************************************!*\
+  !*** ./src/redux/actions/actionTypes.js ***!
+  \******************************************/
+/*! exports provided: INITIAL_LOCALSTORAGE, ADD_TASK, DELETE_TASK, DELETE_TASKS, EDIT_TASK, DONE_TASK, ACTIVE_MAIN */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INITIAL_LOCALSTORAGE", function() { return INITIAL_LOCALSTORAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_TASK", function() { return ADD_TASK; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_TASK", function() { return DELETE_TASK; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_TASKS", function() { return DELETE_TASKS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EDIT_TASK", function() { return EDIT_TASK; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DONE_TASK", function() { return DONE_TASK; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ACTIVE_MAIN", function() { return ACTIVE_MAIN; });
+var INITIAL_LOCALSTORAGE = 'INITIAL_LOCALSTORAGE';
 var ADD_TASK = 'ADD_TASK';
 var DELETE_TASK = 'DELETE_TASK';
 var DELETE_TASKS = 'DELETE_TASKS';
@@ -12202,6 +12277,11 @@ function tasksReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
+    case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_3__["INITIAL_LOCALSTORAGE"]:
+      {
+        return action.payload.data.tasksReducer;
+      }
+
     case _actions_actionTypes__WEBPACK_IMPORTED_MODULE_3__["ADD_TASK"]:
       {
         var taskWidthData = _babel_runtime_corejs2_core_js_object_assign__WEBPACK_IMPORTED_MODULE_2___default()({}, action.payload.newTask, {
@@ -12305,6 +12385,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../store */ "./src/store.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _localStorage__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../localStorage */ "./src/localStorage.js");
 
 
 
@@ -12316,6 +12397,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _jsxFileName = "/home/alitaee/Project/Todo-list/src/redux/with-redux-store.js";
+
 
 
 
@@ -12407,11 +12489,18 @@ function getOrCreateStore(initialState) {
     Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_7__["default"])(AppWithRedux, [{
       key: "render",
       value: function render() {
+        var _this2 = this;
+
+        this.reduxStore.subscribe(function () {
+          Object(_localStorage__WEBPACK_IMPORTED_MODULE_13__["saveState"])({
+            tasksReducer: _this2.reduxStore.getState().tasksReducer
+          });
+        });
         return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(App, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.props, {
           reduxStore: this.reduxStore,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 52
+            lineNumber: 58
           },
           __self: this
         }));
