@@ -8,21 +8,21 @@ import InfoIcon from '@material-ui/icons/Info';
 const Menu = () => (
   <header>
     <h2>Menu</h2>
-    <nav>
-      <ul>
-        <li className="nav-item">
+    <nav className="menu">
+      <ul className="menu__list">
+        <li className="menu__item">
           <Link href="/" as={process.env.BACKEND_URL + '/'}>
-            <div>
+            <div className="menu__item-container">
               <HomeIcon />
-              <span>Home</span>
+              <span className="menu__item-name">Home</span>
             </div>
           </Link>
         </li>
-        <li className="nav-item">
+        <li className="menu__item">
           <Link href="/about" as={process.env.BACKEND_URL + '/about'}>
-            <div>
+            <div className="menu__item-container">
               <InfoIcon />
-              <span>About Todo List</span>
+              <span className="menu__item-name">About Todo List</span>
             </div>
           </Link>
         </li>
