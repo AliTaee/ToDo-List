@@ -62,13 +62,13 @@ const CreateNotes = props => {
   };
 
   return (
-    <section id="create-note">
+    <section className="form">
       <h2>Add Note</h2>
       <form noValidate autoComplete="off">
         <TextField
           required
           label="Note Title"
-          classes={{ root: 'note-titile' }}
+          classes={{ root: 'form__title' }}
           variant="filled"
           type="text"
           id="title-task"
@@ -82,7 +82,7 @@ const CreateNotes = props => {
         <TextField
           multiline
           label="Note Content"
-          classes={{ root: 'note-desc' }}
+          classes={{ root: 'form__desc' }}
           variant="filled"
           type="text"
           id="content-task"
@@ -97,7 +97,11 @@ const CreateNotes = props => {
           Create Note
         </Button>
       </form>
-      {successCreate === true && <p className="mobile success message">Note saved successfully.</p>}
+      {successCreate === true && (
+        <p className="form__mobile form__message form__message--success">
+          Note saved successfully.
+        </p>
+      )}
     </section>
   );
 };
