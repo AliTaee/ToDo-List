@@ -5,6 +5,9 @@ const tasks = [];
 
 export default function tasksReducer(state = tasks, action) {
   switch (action.type) {
+    case type.INITIAL_LOCALSTORAGE: {
+      return action.payload.data.tasksReducer;
+    }
     case type.ADD_TASK: {
       let taskWidthData = Object.assign({}, action.payload.newTask, {
         date: new Date()

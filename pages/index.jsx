@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { loadState } from '../src/localStorage';
 
 // Redux
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { initial_localStorage } from '../src/redux/actions/actionTasks';
 
 // Styles
 import Container from '@material-ui/core/Container';
@@ -20,6 +23,15 @@ import '../src/styles/style.scss';
 
 const Index = props => {
   const { active } = props;
+
+  /*
+   * Load user notes from localStorage
+   */
+  useEffect(() => {
+    const localStorage = loadState();
+    props.initial_localStorage(localStorage);
+  });
+
   return (
     <main>
       <Head />
@@ -40,6 +52,7 @@ const Index = props => {
 
 Index.propTypes = {
   active: PropTypes.object.isRequired,
+  initial_localStorage: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => {
@@ -48,7 +61,13 @@ const mapStateToProps = state => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    initial_localStorage: bindActionCreators(initial_localStorage, dispatch),
+  };
+};
+
 export default connect(
   mapStateToProps,
-  null,
+  mapDispatchToProps,
 )(Index);
