@@ -1,6 +1,7 @@
 import React from 'react';
 import initializeStore from '../store';
 import PropTypes from 'prop-types';
+import { saveState } from '../localStorage';
 
 const isServer = typeof window === 'undefined';
 const __NEXT_REDUX_STORE__ = '__NEXT_REDUX_STORE__';
@@ -49,6 +50,11 @@ export default App => {
     }
 
     render() {
+      this.reduxStore.subscribe(() => {
+        saveState({
+          tasksReducer: this.reduxStore.getState().tasksReducer,
+        });
+      });
       return <App {...this.props} reduxStore={this.reduxStore} />;
     }
   };

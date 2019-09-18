@@ -44,6 +44,17 @@ module.exports = __webpack_require__(/*! core-js/library/fn/is-iterable */ "./no
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/json/stringify */ "./node_modules/core-js/library/fn/json/stringify.js");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/map.js":
 /*!************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/map.js ***!
@@ -18244,6 +18255,22 @@ module.exports = __webpack_require__(/*! ../modules/core.is-iterable */ "./node_
 
 /***/ }),
 
+/***/ "./node_modules/core-js/library/fn/json/stringify.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/library/fn/json/stringify.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var core = __webpack_require__(/*! ../../modules/_core */ "./node_modules/core-js/library/modules/_core.js");
+var $JSON = core.JSON || (core.JSON = { stringify: JSON.stringify });
+module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
+  return $JSON.stringify.apply($JSON, arguments);
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/library/fn/map.js":
 /*!************************************************!*\
   !*** ./node_modules/core-js/library/fn/map.js ***!
@@ -36321,19 +36348,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _material_ui_core_Container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Container */ "./node_modules/@material-ui/core/esm/Container/index.js");
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
-/* harmony import */ var _src_components_layout_Head__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../src/components/layout/Head */ "./src/components/layout/Head.jsx");
-/* harmony import */ var _src_components_navigation_Menu__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../src/components/navigation/Menu */ "./src/components/navigation/Menu.jsx");
-/* harmony import */ var _src_components_note_CreateNote__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../src/components/note/CreateNote */ "./src/components/note/CreateNote.jsx");
-/* harmony import */ var _src_components_note_ViewNotes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../src/components/note/ViewNotes */ "./src/components/note/ViewNotes.jsx");
-/* harmony import */ var _src_components_note_ViewNote__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../src/components/note/ViewNote */ "./src/components/note/ViewNote.jsx");
-/* harmony import */ var _src_styles_style_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../src/styles/style.scss */ "./src/styles/style.scss");
-/* harmony import */ var _src_styles_style_scss__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_src_styles_style_scss__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _src_localStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/localStorage */ "./src/localStorage.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _src_redux_actions_actionTasks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../src/redux/actions/actionTasks */ "./src/redux/actions/actionTasks.js");
+/* harmony import */ var _material_ui_core_Container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Container */ "./node_modules/@material-ui/core/esm/Container/index.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
+/* harmony import */ var _src_components_layout_Head__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../src/components/layout/Head */ "./src/components/layout/Head.jsx");
+/* harmony import */ var _src_components_navigation_Menu__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../src/components/navigation/Menu */ "./src/components/navigation/Menu.jsx");
+/* harmony import */ var _src_components_note_CreateNote__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../src/components/note/CreateNote */ "./src/components/note/CreateNote.jsx");
+/* harmony import */ var _src_components_note_ViewNotes__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../src/components/note/ViewNotes */ "./src/components/note/ViewNotes.jsx");
+/* harmony import */ var _src_components_note_ViewNote__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../src/components/note/ViewNote */ "./src/components/note/ViewNote.jsx");
+/* harmony import */ var _src_styles_style_scss__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../src/styles/style.scss */ "./src/styles/style.scss");
+/* harmony import */ var _src_styles_style_scss__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_src_styles_style_scss__WEBPACK_IMPORTED_MODULE_13__);
 var _jsxFileName = "/home/alitaee/Project/Todo-list/pages/index.jsx";
 
+
  // Redux
+
+
 
  // Styles
 
@@ -36350,33 +36383,41 @@ var _jsxFileName = "/home/alitaee/Project/Todo-list/pages/index.jsx";
 
 var Index = function Index(props) {
   var active = props.active;
+  /*
+   * Load user notes from localStorage
+   */
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    var localStorage = Object(_src_localStorage__WEBPACK_IMPORTED_MODULE_2__["loadState"])();
+    props.initial_localStorage(localStorage);
+  });
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 36
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_layout_Head__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_layout_Head__WEBPACK_IMPORTED_MODULE_8__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 37
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_6__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 38
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__["default"], {
     container: true,
     spacing: 0,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 39
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__["default"], {
     className: "sidebar",
     item: true,
     xs: 12,
@@ -36384,22 +36425,22 @@ var Index = function Index(props) {
     md: 3,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28
+      lineNumber: 40
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_navigation_Menu__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_navigation_Menu__WEBPACK_IMPORTED_MODULE_9__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 41
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_note_ViewNotes__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_note_ViewNotes__WEBPACK_IMPORTED_MODULE_11__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 42
     },
     __self: this
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__["default"], {
     className: "main",
     item: true,
     xs: 12,
@@ -36407,27 +36448,28 @@ var Index = function Index(props) {
     md: 9,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 44
     },
     __self: this
-  }, active.name === 'create' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_note_CreateNote__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, active.name === 'create' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_note_CreateNote__WEBPACK_IMPORTED_MODULE_10__["default"], {
     activeData: active,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 45
     },
     __self: this
-  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_note_ViewNote__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_note_ViewNote__WEBPACK_IMPORTED_MODULE_12__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 45
     },
     __self: this
   })))));
 };
 
 Index.propTypes = {
-  active: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired
+  active: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired,
+  initial_localStorage: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
 };
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -36436,7 +36478,13 @@ var mapStateToProps = function mapStateToProps(state) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, null)(Index));
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    initial_localStorage: Object(redux__WEBPACK_IMPORTED_MODULE_4__["bindActionCreators"])(_src_redux_actions_actionTasks__WEBPACK_IMPORTED_MODULE_5__["initial_localStorage"], dispatch)
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, mapDispatchToProps)(Index));
 
 /***/ }),
 
@@ -37477,6 +37525,52 @@ var mapStateToProps = function mapStateToProps(state) {
 
 /***/ }),
 
+/***/ "./src/localStorage.js":
+/*!*****************************!*\
+  !*** ./src/localStorage.js ***!
+  \*****************************/
+/*! exports provided: loadState, saveState */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadState", function() { return loadState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "saveState", function() { return saveState; });
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/*
+ * load data from localStorage
+ */
+var loadState = function loadState() {
+  try {
+    var serializedState = localStorage.getItem('state');
+
+    if (serializedState === null) {
+      return undefined;
+    }
+
+    return JSON.parse(serializedState);
+  } catch (err) {
+    return undefined;
+  }
+};
+/*
+ * Save data to localStorage
+ */
+
+var saveState = function saveState(state) {
+  try {
+    var serializedState = _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(state);
+
+    localStorage.setItem('state', serializedState);
+  } catch (_unused) {// ignore write errors
+  }
+};
+
+/***/ }),
+
 /***/ "./src/redux/actions/actionMain.js":
 /*!*****************************************!*\
   !*** ./src/redux/actions/actionMain.js ***!
@@ -37509,11 +37603,12 @@ var activeMain = function activeMain(_activeMain, title, content, date, id, done
 /*!******************************************!*\
   !*** ./src/redux/actions/actionTasks.js ***!
   \******************************************/
-/*! exports provided: addTask, deleteTask, deleteTasks, editTask, doneTask */
+/*! exports provided: initial_localStorage, addTask, deleteTask, deleteTasks, editTask, doneTask */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initial_localStorage", function() { return initial_localStorage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addTask", function() { return addTask; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteTask", function() { return deleteTask; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteTasks", function() { return deleteTasks; });
@@ -37521,6 +37616,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "doneTask", function() { return doneTask; });
 /* harmony import */ var _actionTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actionTypes */ "./src/redux/actions/actionTypes.js");
 
+var initial_localStorage = function initial_localStorage(data) {
+  return {
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["INITIAL_LOCALSTORAGE"],
+    payload: {
+      data: data
+    }
+  };
+};
 var addTask = function addTask(newTask) {
   return {
     type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["ADD_TASK"],
@@ -37569,17 +37672,19 @@ var doneTask = function doneTask(isDone, id) {
 /*!******************************************!*\
   !*** ./src/redux/actions/actionTypes.js ***!
   \******************************************/
-/*! exports provided: ADD_TASK, DELETE_TASK, DELETE_TASKS, EDIT_TASK, DONE_TASK, ACTIVE_MAIN */
+/*! exports provided: INITIAL_LOCALSTORAGE, ADD_TASK, DELETE_TASK, DELETE_TASKS, EDIT_TASK, DONE_TASK, ACTIVE_MAIN */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INITIAL_LOCALSTORAGE", function() { return INITIAL_LOCALSTORAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_TASK", function() { return ADD_TASK; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_TASK", function() { return DELETE_TASK; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_TASKS", function() { return DELETE_TASKS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EDIT_TASK", function() { return EDIT_TASK; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DONE_TASK", function() { return DONE_TASK; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ACTIVE_MAIN", function() { return ACTIVE_MAIN; });
+var INITIAL_LOCALSTORAGE = 'INITIAL_LOCALSTORAGE';
 var ADD_TASK = 'ADD_TASK';
 var DELETE_TASK = 'DELETE_TASK';
 var DELETE_TASKS = 'DELETE_TASKS';

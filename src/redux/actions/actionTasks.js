@@ -1,5 +1,12 @@
 import * as type from './actionTypes';
 
+export const initial_localStorage = data => ({
+  type: type.INITIAL_LOCALSTORAGE,
+  payload: {
+    data,
+  },
+});
+
 export const addTask = newTask => ({
   type: type.ADD_TASK,
   payload: {
