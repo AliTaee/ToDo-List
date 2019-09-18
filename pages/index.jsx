@@ -29,7 +29,7 @@ const Index = props => {
    */
   useEffect(() => {
     const localStorage = loadState();
-    props.initial_localStorage(localStorage);
+    if (localStorage !== undefined) props.initial_localStorage(localStorage);
   });
 
   return (
