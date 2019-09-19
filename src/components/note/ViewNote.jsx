@@ -7,10 +7,10 @@ import { connect } from 'react-redux';
 const ViewNote = props => {
   const { activeMain } = props;
   return (
-    <article className="note-content">
-      <h3>
+    <article className="view-note">
+      <h3 className="view-note__title">
         {activeMain.title}
-        <small> ({activeMain.date})</small>
+        <small className="view-note__date"> ({activeMain.date})</small>
       </h3>
       <p>{activeMain.content}</p>
     </article>

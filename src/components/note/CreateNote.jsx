@@ -63,7 +63,7 @@ const CreateNotes = props => {
 
   return (
     <section className="form">
-      <h2>Add Note</h2>
+      <h2 className="h2">Add Note</h2>
       <form noValidate autoComplete="off">
         <TextField
           required

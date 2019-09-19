@@ -32,7 +32,7 @@ const MainLayout = props => {
 };
 
 MainLayout.propTypes = {
-  children: PropTypes.array.isRequired,
+  children: PropTypes.object.isRequired,
 };
 
 export default MainLayout;

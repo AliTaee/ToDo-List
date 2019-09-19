@@ -7,7 +7,7 @@ import InfoIcon from '@material-ui/icons/Info';
 
 const Menu = () => (
   <header>
-    <h2>Menu</h2>
+    <h2 className="h2">Menu</h2>
     <nav className="menu">
       <ul className="menu__list">
         <li className="menu__item">

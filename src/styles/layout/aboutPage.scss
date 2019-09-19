@@ -1,11 +1,13 @@
 /*
 * About Page
 */
-.create-tech {
+.about {
+  @at-root #{&}__tech {
     margin-left: 1em;
     list-style: circle;
-}
+  }
 
-.info-author {
+  @at-root #{&}__author {
     margin-top: 1em;
+  }
 }
