@@ -1,2 +1,10 @@
 node_modules
+
+// Static files
 .next
+_next
+out
+index.html
+404.html
+about.html
+edit.html
