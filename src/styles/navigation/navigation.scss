@@ -1,25 +1,26 @@
 /*
 * Navigation
 */
-nav {
-  ul {
+.menu {
+  @at-root #{&}__list {
     list-style: none;
   }
 
-  .nav-item {
+  @at-root #{&}__item {
     margin-bottom: 7px;
     position: relative;
-    div {
-      color: $main_color;
-      text-decoration: none;
-      cursor: pointer;
+  }
 
-      span {
-        position: absolute;
-        top: 3px;
-        left: 35px;
-        width: 150px;
-      }
-    }
+  @at-root #{&}__item-container {
+    color: $main_color;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  @at-root #{&}__item-name {
+    position: absolute;
+    top: 3px;
+    left: 35px;
+    width: 150px;
   }
 }

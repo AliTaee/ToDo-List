@@ -2,39 +2,43 @@
 * Create Note Form
 */
 
-#create-note {
-  .note-desc,
-  .note-titile .MuiFilledInput-root {
+.form {
+  @at-root #{&}__title {
+    background: $main_color;
+    border-radius: 4px;
+  }
+
+  @at-root #{&}__desc {
     background: $main_color;
   }
 
-  .reset-form {
-    margin-left: 10px;
+  @at-root #{&}__desc.MuiFormControl-marginNormal {
+    margin-top: 8px;
   }
 
-  .message {
+  @at-root #{&}__reset {
+    margin-left: 10px !important;
+  }
+
+  @at-root #{&}__message {
     border-radius: 3px;
     padding: 7px 15px;
     margin: 1em 0;
   }
 
-  .note-desc {
-    margin-top: 8px;
-  }
-
-  .success {
+  @at-root #{&}__message--success {
     background-color: $success_background;
     color: $success_color;
   }
 
-  .mobile {
+  @at-root #{&}__mobile {
     display: none;
   }
 }
 
 @media only screen and (max-width: $tablet) {
-  #create-note {
-    .mobile {
+  .form {
+    @at-root #{&}__mobile {
       display: block;
     }
   }

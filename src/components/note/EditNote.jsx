@@ -71,13 +71,13 @@ const EditNote = props => {
   };
 
   return (
-    <section id="create-note">
-      <h2>Edit Note</h2>
+    <section className="form">
+      <h2 className="h2">Edit Note</h2>
       <form noValidate autoComplete="off">
         <TextField
           required
           label="Note Title"
-          classes={{ root: 'note-titile' }}
+          classes={{ root: 'form__title' }}
           variant="filled"
           type="text"
           id="title-task"
@@ -92,7 +92,7 @@ const EditNote = props => {
         <TextField
           multiline
           label="Note Content"
-          classes={{ root: 'note-desc' }}
+          classes={{ root: 'form__desc' }}
           variant="filled"
           type="text"
           id="content-task"
@@ -116,11 +116,15 @@ const EditNote = props => {
             </Link>
           )}
         </span>
-        <Button onClick={clearForm} className="reset-form" variant="contained" color="secondary">
+        <Button onClick={clearForm} className="form__reset" variant="contained" color="secondary">
           Clear
         </Button>
       </form>
-      {successCreate === true && <p className="mobile success message">Note saved successfully.</p>}
+      {successCreate === true && (
+        <p className="form__mobile form__message form__message--success">
+          Note saved successfully.
+        </p>
+      )}
     </section>
   );
 };

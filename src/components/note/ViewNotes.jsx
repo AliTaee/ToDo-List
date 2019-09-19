@@ -22,8 +22,8 @@ const View = props => {
   };
 
   return (
-    <section className="note-list-container">
-      <h3>Note List</h3>
+    <section className="notes">
+      <h3 className="h3">Note List</h3>
       {active.name !== 'create' && (
         <Link href="/" as={process.env.BACKEND_URL + '/'}>
           <Button onClick={activeAddNote} className="add-note" variant="contained" color="primary">
