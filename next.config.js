@@ -10,7 +10,7 @@ module.exports = withCSS(
       '/about': { page: '/about' },
       '/edit': { page: '/edit' },
     }),
-    assetPrefix: !debug ? '/Todo-list/' : '',
+    assetPrefix: !debug ? '' : '',
     webpack(config) {
       config.module.rules.push({
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
