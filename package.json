@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .babelrc.js env-config.js pages/**/*.js pages/**/*.jsx src/**/*.jsx src/**/*.js static/**/*.js next.config.js pwabuilder-sw.js",
-    "deploy": "rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && git add out/ && git commit -m \"Deploy Next.js to gh-pages\" && git subtree push --prefix out origin gh-pages"
+    "export": "next export",
+    "deploy": "npm run build && npm run export"
   },
   "keywords": [
     "Todolist",
