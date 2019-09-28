@@ -10,6 +10,7 @@ Project is created with:
 - Redux: 4.0.4
 - React-redux: 7.1.0
 - Next.js: 9.0.3
+- Jest (JavaScript Testing Framework): 24.9.0
 - Prettier: 9.0.3
 - Eslint: 6.1.0
 - Node-sass: 4.12.0
@@ -26,6 +27,9 @@ npm run dev
 
 # lint dev codes
 npm run lint
+
+# run unit tests
+npm run unit
 
 # build for production with minification
 npm run build
