@@ -22,7 +22,7 @@ const Menu = () => (
           <Link href="/about" as={process.env.BACKEND_URL + '/about'}>
             <div className="menu__item-container">
               <InfoIcon />
-              <span className="menu__item-name">About Todo List</span>
+              <span className="menu__item-name">About</span>
             </div>
           </Link>
         </li>
