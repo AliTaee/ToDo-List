@@ -9,13 +9,25 @@
     "start": "next start",
     "unit": "jest --coverage",
     "lint": "eslint .babelrc.js --no-ignore env-config.js pages/**/*.js pages/**/*.jsx src/**/*.jsx src/**/*.js static/**/*.js next.config.js pwabuilder-sw.js",
+    "format": "prettier --check src/**/*.js pages/**/*.js src/**/*.jsx pages/**/*.jsx",
     "export": "next export",
     "deploy": "npm run build && npm run export"
   },
-  "pre-commit": [
-    "lint",
-    "unit"
-  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run format"
+    }
+  },
+  "lint-staged": {
+    "*.+(js|jsx)": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.+(json|css|md)": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "keywords": [
     "Todolist",
     "React",
@@ -55,9 +67,10 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-utils": ">=1.4.1",
+    "husky": "^4.2.3",
     "jest": "^24.9.0",
     "jest-css-modules": "^2.1.0",
-    "pre-commit": "^1.2.2",
+    "lint-staged": "^10.0.8",
     "prettier": "^1.18.2",
     "react-test-renderer": "^16.9.0"
   }
