@@ -2,7 +2,7 @@
 
 describe('Create Note test', () => {
   it('Go to home page', () => {
-    cy.visit('http://localhost:3000/');
+    cy.visit('/');
   });
 
   describe('Creating a note with a title and a description.', () => {
