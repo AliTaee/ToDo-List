@@ -11,19 +11,19 @@ describe('Create Note test', () => {
 
     it('Type a title', () => {
       cy.contains('Add Note');
-      cy.get('#title-task')
+      cy.get('[data-test=note-title]')
         .type(noteTitle)
         .should('have.value', noteTitle);
     });
 
     it('Type a description', () => {
-      cy.get('#content-task')
+      cy.get('[data-test=note-desc]')
         .type(textTitle)
         .should('have.value', textTitle);
     });
 
     it('Click on submit', () => {
-      cy.contains('Create Note').click();
+      cy.get('[data-test=submit-note]').click();
     });
 
     it('App should have a note text: Learning e2e', () => {
@@ -31,9 +31,7 @@ describe('Create Note test', () => {
     });
 
     it('Note list should have one node', () => {
-      cy.get('.note-list')
-        .children()
-        .should('have.length', 1);
+      cy.get('[data-test=note-item]').should('have.length', 1);
     });
   });
 
@@ -42,13 +40,13 @@ describe('Create Note test', () => {
 
     it('Type a title', () => {
       cy.contains('Add Note');
-      cy.get('#title-task')
+      cy.get('[data-test=note-title]')
         .type(noteTitle)
         .should('have.value', noteTitle);
     });
 
     it('Click on submit', () => {
-      cy.contains('Create Note').click();
+      cy.get('[data-test=submit-note]').click();
     });
 
     it('App should have a note text: Learning Unit Testing', () => {
@@ -56,25 +54,21 @@ describe('Create Note test', () => {
     });
 
     it('Note list should have two node', () => {
-      cy.get('.note-list')
-        .children()
-        .should('have.length', 2);
+      cy.get('[data-test=note-item]').should('have.length', 2);
     });
   });
 
   describe('Creating a note without a title (validation test).', () => {
     it('Click on submit', () => {
-      cy.contains('Create Note').click();
+      cy.get('[data-test=submit-note]').click();
     });
 
-    it('Should have error class', () => {
-      cy.get('.Mui-error');
+    it('Input title Should have error', () => {
+      cy.get('[aria-invalid=true]');
     });
 
     it('Note list still should have two node', () => {
-      cy.get('.note-list')
-        .children()
-        .should('have.length', 2);
+      cy.get('[data-test=note-item]').should('have.length', 2);
     });
   });
 });

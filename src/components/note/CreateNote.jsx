@@ -78,6 +78,7 @@ const CreateNotes = props => {
           error={taskNameRequired === true}
           value={taskName}
           name="text"
+          inputProps={{ 'data-test': 'note-title' }}
         />
         <TextField
           multiline
@@ -92,8 +93,15 @@ const CreateNotes = props => {
           onChange={handleTaskContent}
           value={taskContent}
           aria-label="note content"
+          inputProps={{ 'data-test': 'note-desc' }}
         />
-        <Button onClick={createNote} type="submit" variant="contained" color="primary">
+        <Button
+          data-test="submit-note"
+          onClick={createNote}
+          type="submit"
+          variant="contained"
+          color="primary"
+        >
           Create Note
         </Button>
       </form>

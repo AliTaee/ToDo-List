@@ -53,7 +53,7 @@ const NoteList = props => {
     <div className="list-tasks">
       <List className="note-list">
         {tasks.map(item => (
-          <ListItem key={item.id} dense button>
+          <ListItem ContainerProps={{ 'data-test': 'note-item' }} key={item.id} dense button>
             <ListItemIcon>
               <Checkbox
                 edge="start"
