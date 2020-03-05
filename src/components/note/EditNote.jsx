@@ -88,6 +88,7 @@ const EditNote = props => {
           error={taskNameRequired === true}
           value={taskName}
           name="text"
+          inputProps={{ 'data-test': 'note-title' }}
         />
         <TextField
           multiline
@@ -102,26 +103,33 @@ const EditNote = props => {
           onChange={handleTaskContent}
           value={taskContent}
           aria-label="note content"
+          inputProps={{ 'data-test': 'note-desc' }}
         />
         <span onClick={saveNote}>
           {taskName === '' || taskName === undefined ? (
-            <Button variant="contained" color="primary">
+            <Button data-test="submit-note" variant="contained" color="primary">
               Save Note
             </Button>
           ) : (
             <Link href="/" as={process.env.BACKEND_URL + '/'}>
-              <Button variant="contained" color="primary">
+              <Button data-test="submit-note" variant="contained" color="primary">
                 Save Note
               </Button>
             </Link>
           )}
         </span>
-        <Button onClick={clearForm} className="form__reset" variant="contained" color="secondary">
+        <Button
+          data-test="submit-clear"
+          onClick={clearForm}
+          className="form__reset"
+          variant="contained"
+          color="secondary"
+        >
           Clear
         </Button>
       </form>
       {successCreate === true && (
-        <p className="form__mobile form__message form__message--success">
+        <p data-test="submit-success" className="form__mobile form__message form__message--success">
           Note saved successfully.
         </p>
       )}

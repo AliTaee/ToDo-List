@@ -50,7 +50,7 @@ const NoteList = props => {
   };
 
   return (
-    <div className="list-tasks">
+    <div className="list-tasks" data-test="note-list">
       <List className="note-list">
         {tasks.map(item => (
           <ListItem ContainerProps={{ 'data-test': 'note-item' }} key={item.id} dense button>
@@ -61,7 +61,7 @@ const NoteList = props => {
                 checked={item.done === true}
                 tabIndex={-1}
                 disableRipple
-                inputProps={{ 'aria-labelledby': item.id }}
+                inputProps={{ 'aria-labelledby': item.id, 'data-test': 'note-check' }}
               />
             </ListItemIcon>
             <Link href="/" as={process.env.BACKEND_URL + '/'}>
@@ -71,6 +71,7 @@ const NoteList = props => {
                 id={item.id}
                 primary={item.title}
                 secondary={`${item.date}`}
+                secondaryTypographyProps={{ 'data-test': 'note-date' }}
               />
             </Link>
             <ListItemSecondaryAction>

@@ -76,14 +76,24 @@ const DeleteNotes = props => {
           </Button>
           <span onClick={handleDeleteAllNote}>
             <Link href="/" as={process.env.BACKEND_URL + '/'}>
-              <Button variant="contained" color="secondary" autoFocus>
+              <Button
+                data-test="confirm-delete-notes"
+                variant="contained"
+                color="secondary"
+                autoFocus
+              >
                 Delete
               </Button>
             </Link>
           </span>
         </DialogActions>
       </Dialog>
-      <Button onClick={handleClickOpen} variant="contained" color="secondary">
+      <Button
+        data-test="delete-notes"
+        onClick={handleClickOpen}
+        variant="contained"
+        color="secondary"
+      >
         Delete Notes <DeleteIcon />
       </Button>
     </div>
