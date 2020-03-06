@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
+import { loadState } from '../src/localStorage';
 
 // Redux
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { initial_localStorage } from '../src/redux/actions/actionTasks';
 
 // Styles
 import Container from '@material-ui/core/Container';
@@ -19,6 +23,26 @@ import '../src/styles/style.scss';
 
 const Edit = props => {
   const { active } = props;
+  const [editNoteData, setEditNoteData] = useState({});
+  const router = useRouter();
+
+  /*
+   * Load user notes from localStorage
+   */
+  useEffect(() => {
+    const localStorage = loadState();
+
+    // if user directly come to edit route
+    if (active.name === 'create') {
+      let localData = localStorage.tasksReducer.filter(n => n.id === router.query.id);
+      localData = localData[0];
+      setEditNoteData(localData);
+      props.initial_localStorage(localStorage);
+    } else {
+      setEditNoteData(active);
+    }
+  }, [setEditNoteData, active]);
+
   return (
     <main>
       <Head />
@@ -29,7 +53,7 @@ const Edit = props => {
             <ViewNotes />
           </Grid>
           <Grid className="main" item xs={12} sm={12} md={9}>
-            <EditNote activeData={active} />
+            <EditNote activeData={editNoteData} />
           </Grid>
         </Grid>
       </Container>
@@ -39,6 +63,7 @@ const Edit = props => {
 
 Edit.propTypes = {
   active: PropTypes.object.isRequired,
+  initial_localStorage: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => {
@@ -47,7 +72,13 @@ const mapStateToProps = state => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    initial_localStorage: bindActionCreators(initial_localStorage, dispatch),
+  };
+};
+
 export default connect(
   mapStateToProps,
-  null,
+  mapDispatchToProps,
 )(Edit);

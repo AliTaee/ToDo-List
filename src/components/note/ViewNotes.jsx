@@ -1,6 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
 
 // Redux
 import { connect } from 'react-redux';
@@ -15,6 +16,7 @@ import Button from '@material-ui/core/Button';
 import EditIcon from '@material-ui/icons/Edit';
 
 const View = props => {
+  const router = useRouter();
   const { tasks, active } = props;
 
   const activeAddNote = () => {
@@ -24,7 +26,7 @@ const View = props => {
   return (
     <section className="notes">
       <h3 className="h3">Note List</h3>
-      {active.name !== 'create' && (
+      {(active.name !== 'create' || router.pathname !== '/') && (
         <Link href="/" as={process.env.BACKEND_URL + '/'}>
           <Button onClick={activeAddNote} className="add-note" variant="contained" color="primary">
             Add Note <EditIcon />
