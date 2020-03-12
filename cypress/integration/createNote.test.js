@@ -1,9 +1,9 @@
-describe('Create Note test', () => {
+describe('Test Create Note', () => {
   it('Should Go to home page', () => {
     cy.visit('/');
   });
 
-  describe('Creating a note with a title and a description.', () => {
+  describe('Test Creating a note with a title and a description.', () => {
     const noteTitle = 'Learning e2e';
     const textTitle = 'e2e description';
 
@@ -33,7 +33,7 @@ describe('Create Note test', () => {
     });
   });
 
-  describe('Creating a note with just a title.', () => {
+  describe('Test Creating a note with just a title.', () => {
     const noteTitle = 'Learning Unit Testing';
 
     it('Should Type a title', () => {
@@ -56,7 +56,7 @@ describe('Create Note test', () => {
     });
   });
 
-  describe('Creating a note without a title (validation test).', () => {
+  describe('Test Creating a note without a title (validation test).', () => {
     it('Should Click on submit', () => {
       cy.get('[data-test=submit-note]').click();
     });

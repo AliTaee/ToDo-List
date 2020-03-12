@@ -18,7 +18,7 @@ describe('Test Edit Note', () => {
     });
   });
 
-  describe('Go to home page', () => {
+  describe('Test Go to home page', () => {
     it('Should Go to home page', () => {
       cy.visit('/');
       cy.clearLocalStorage();
@@ -29,7 +29,7 @@ describe('Test Edit Note', () => {
     });
   });
 
-  describe('Creating a note with a title and a description.', () => {
+  describe('Test Creating a note with a title and a description.', () => {
     it('Should Type a title', () => {
       cy.contains('Add Note');
       cy.get('[data-test=note-title]')
@@ -56,9 +56,9 @@ describe('Test Edit Note', () => {
     });
   });
 
-  describe('Edit Note.', () => {
+  describe('Test Edit Note.', () => {
     it('Should Click on edit note', () => {
-      cy.get('[aria-label=edit]').click();
+      cy.get('[data-test=note-edit]').click();
     });
 
     it('Should have edit note title', () => {
@@ -92,7 +92,7 @@ describe('Test Edit Note', () => {
 
   describe('Test change new title and description', () => {
     it('Should Click on edit note', () => {
-      cy.get('[aria-label=edit]').click();
+      cy.get('[data-test=note-edit]').click();
     });
 
     it('Should the new title must be in place', () => {
