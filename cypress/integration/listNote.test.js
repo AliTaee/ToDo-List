@@ -36,7 +36,7 @@ describe('Create a multi note fot test', () => {
       cy.get('[data-test=submit-note]').click();
     });
 
-    it(`Should App have a note title: ${noteTitle}-${index}`, () => {
+    it(`Should App have a note title`, () => {
       cy.contains(`${noteTitle}-${index}`);
     });
 
