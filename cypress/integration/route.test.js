@@ -1,7 +1,5 @@
-/* eslint-env jest */
-
 describe('Test Routing', () => {
-  it('Go to about page thene return to home page', () => {
+  it('Should Go to about page then return to home page', () => {
     cy.visit('/');
     cy.contains('About').click();
     cy.url().should('include', '/about');
