@@ -70,8 +70,7 @@ const NoteList = props => {
                 className={item.done === true ? 'done' : ''}
                 id={item.id}
                 primary={item.title}
-                secondary={`${item.date}`}
-                secondaryTypographyProps={{ 'data-test': 'note-date' }}
+                secondary={<span data-test="note-date">{item.date}</span>}
               />
             </Link>
             <ListItemSecondaryAction>
