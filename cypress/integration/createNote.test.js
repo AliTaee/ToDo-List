@@ -43,6 +43,10 @@ describe('Test Create Note', () => {
         .should('have.value', noteTitle);
     });
 
+    it('Should description field is Empty', () => {
+      cy.get('[data-test=note-desc]').should('have.value', '');
+    });
+
     it('Should Click on submit', () => {
       cy.get('[data-test=submit-note]').click();
     });
