@@ -13,7 +13,7 @@ import NoteList from './viewChildComponents/NoteList';
 
 // Materail UI
 import Button from '@material-ui/core/Button';
-import EditIcon from '@material-ui/icons/Edit';
+import NoteAddIcon from '@material-ui/icons/NoteAdd';
 
 const View = props => {
   const router = useRouter();
@@ -25,14 +25,21 @@ const View = props => {
 
   return (
     <section className="notes">
-      <h3 className="h3">Note List</h3>
-      {(active.name !== 'create' || router.pathname !== '/') && (
-        <Link href="/" as={process.env.BACKEND_URL + '/'}>
-          <Button onClick={activeAddNote} className="add-note" variant="contained" color="primary">
-            Add Note <EditIcon />
-          </Button>
-        </Link>
-      )}
+      <div className="notes_header">
+        <h3 className="h3">Note List</h3>
+        {(active.name !== 'create' || router.pathname !== '/') && (
+          <Link href="/" as={process.env.BACKEND_URL + '/'}>
+            <Button
+              onClick={activeAddNote}
+              className="add-note"
+              variant="contained"
+              color="primary"
+            >
+              <NoteAddIcon />
+            </Button>
+          </Link>
+        )}
+      </div>
       {tasks.length === 0 ? <p>No notes yet.</p> : <NoteList tasks={tasks} />}
     </section>
   );
