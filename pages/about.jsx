@@ -16,6 +16,8 @@ function About() {
           <li>React</li>
           <li>Redux</li>
           <li>Next.js</li>
+          <li>Cypress</li>
+          <li>Jest</li>
           <li>Material-UI</li>
           <li>SASS</li>
           <li>ESLINT</li>
