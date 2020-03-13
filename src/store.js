@@ -3,7 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './redux/reducers/rootReducer';
 
 const appInitialState = {
-  InitialState: [],
+  tasksReducer: [],
 };
 
 const initializeStore = (initialState = appInitialState) =>
