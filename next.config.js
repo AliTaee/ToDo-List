@@ -1,4 +1,3 @@
-require('dotenv').config();
 const debug = process.env.NODE_ENV !== 'production';
 const withSass = require('@zeit/next-sass');
 const withCSS = require('@zeit/next-css');
