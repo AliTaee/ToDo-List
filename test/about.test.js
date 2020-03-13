@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import About from './about';
+import About from '../pages/about';
 
 describe('React render testing', () => {
   it('renders about page without crashing', () => {
