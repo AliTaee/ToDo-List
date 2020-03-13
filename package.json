@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "e2e": "cypress open",
-    "unit": "jest --coverage",
+    "unit": "jest src/ pages/  --coverage",
     "lint": "eslint .babelrc.js --no-ignore env-config.js pages/**/*.js pages/**/*.jsx src/**/*.jsx src/**/*.js static/**/*.js next.config.js pwabuilder-sw.js",
     "format": "prettier --check src/**/*.js pages/**/*.js src/**/*.jsx pages/**/*.jsx",
     "export": "next export",
