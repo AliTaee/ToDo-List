@@ -6,15 +6,16 @@
 
 Project is created with:
 
-- React: 16.8.6
-- Redux: 4.0.4
-- React-redux: 7.1.0
-- Next.js: 9.0.3
-- Jest (JavaScript Testing Framework): 24.9.0
-- Prettier: 9.0.3
-- Eslint: 6.1.0
-- Node-sass: 4.12.0
-- Material-ui: 4.3.1
+- React
+- Redux
+- React-redux
+- Next.js
+- Jest
+- Prettier
+- Eslint
+- Node-sass
+- Material-UI
+- Cypress
 
 ## Build Setup
 
@@ -30,6 +31,9 @@ npm run lint
 
 # run unit tests
 npm run unit
+
+# run e2e tests
+npm run e2e
 
 # build for production with minification
 npm run build
