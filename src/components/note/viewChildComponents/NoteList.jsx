@@ -50,10 +50,10 @@ const NoteList = props => {
   };
 
   return (
-    <div className="list-tasks">
+    <div className="list-tasks" data-test="note-list">
       <List className="note-list">
         {tasks.map(item => (
-          <ListItem key={item.id} dense button>
+          <ListItem ContainerProps={{ 'data-test': 'note-item' }} key={item.id} dense button>
             <ListItemIcon>
               <Checkbox
                 edge="start"
@@ -61,7 +61,7 @@ const NoteList = props => {
                 checked={item.done === true}
                 tabIndex={-1}
                 disableRipple
-                inputProps={{ 'aria-labelledby': item.id }}
+                inputProps={{ 'aria-labelledby': item.id, 'data-test': 'note-check' }}
               />
             </ListItemIcon>
             <Link href="/" as={process.env.BACKEND_URL + '/'}>
@@ -70,18 +70,28 @@ const NoteList = props => {
                 className={item.done === true ? 'done' : ''}
                 id={item.id}
                 primary={item.title}
-                secondary={`${item.date}`}
+                secondary={<span data-test="note-date">{item.date}</span>}
               />
             </Link>
             <ListItemSecondaryAction>
-              <IconButton onClick={() => handleDeleteNote(item.id)} edge="end" aria-label="delete">
+              <IconButton
+                data-test="note-delete"
+                onClick={() => handleDeleteNote(item.id)}
+                edge="end"
+                aria-label="delete"
+              >
                 <DeleteIcon />
               </IconButton>
               <Link
                 href={`/edit?id=${item.id}`}
                 as={`${process.env.BACKEND_URL}/edit?id=${item.id}`}
               >
-                <IconButton onClick={() => handleEditNote(item)} edge="end" aria-label="edit">
+                <IconButton
+                  data-test="note-edit"
+                  onClick={() => handleEditNote(item)}
+                  edge="end"
+                  aria-label="edit"
+                >
                   <EditIcon />
                 </IconButton>
               </Link>
