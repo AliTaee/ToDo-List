@@ -52,52 +52,56 @@ const NoteList = props => {
   return (
     <div className="list-tasks" data-test="note-list">
       <List className="note-list">
-        {tasks.map(item => (
-          <ListItem ContainerProps={{ 'data-test': 'note-item' }} key={item.id} dense button>
-            <ListItemIcon>
-              <Checkbox
-                edge="start"
-                onClick={() => handleToggle(item)}
-                checked={item.done === true}
-                tabIndex={-1}
-                disableRipple
-                inputProps={{ 'aria-labelledby': item.id, 'data-test': 'note-check' }}
-              />
-            </ListItemIcon>
-            <Link href="/" as={process.env.BACKEND_URL + '/'}>
-              <ListItemText
-                onClick={() => handleActiveMain(item)}
-                className={item.done === true ? 'done' : ''}
-                id={item.id}
-                primary={item.title}
-                secondary={<span data-test="note-date">{item.date}</span>}
-              />
-            </Link>
-            <ListItemSecondaryAction>
-              <IconButton
-                data-test="note-delete"
-                onClick={() => handleDeleteNote(item.id)}
-                edge="end"
-                aria-label="delete"
-              >
-                <DeleteIcon />
-              </IconButton>
-              <Link
-                href={`/edit?id=${item.id}`}
-                as={`${process.env.BACKEND_URL}/edit?id=${item.id}`}
-              >
-                <IconButton
-                  data-test="note-edit"
-                  onClick={() => handleEditNote(item)}
-                  edge="end"
-                  aria-label="edit"
-                >
-                  <EditIcon />
-                </IconButton>
+        {tasks.length !== 0 ? (
+          tasks.map(item => (
+            <ListItem ContainerProps={{ 'data-test': 'note-item' }} key={item.id} dense button>
+              <ListItemIcon>
+                <Checkbox
+                  edge="start"
+                  onClick={() => handleToggle(item)}
+                  checked={item.done === true}
+                  tabIndex={-1}
+                  disableRipple
+                  inputProps={{ 'aria-labelledby': item.id, 'data-test': 'note-check' }}
+                />
+              </ListItemIcon>
+              <Link href="/" as={process.env.BACKEND_URL + '/'}>
+                <ListItemText
+                  onClick={() => handleActiveMain(item)}
+                  className={item.done === true ? 'done' : ''}
+                  id={item.id}
+                  primary={item.title}
+                  secondary={<span data-test="note-date">{item.date}</span>}
+                />
               </Link>
-            </ListItemSecondaryAction>
-          </ListItem>
-        ))}
+              <ListItemSecondaryAction>
+                <IconButton
+                  data-test="note-delete"
+                  onClick={() => handleDeleteNote(item.id)}
+                  edge="end"
+                  aria-label="delete"
+                >
+                  <DeleteIcon />
+                </IconButton>
+                <Link
+                  href={`/edit?id=${item.id}`}
+                  as={`${process.env.BACKEND_URL}/edit?id=${item.id}`}
+                >
+                  <IconButton
+                    data-test="note-edit"
+                    onClick={() => handleEditNote(item)}
+                    edge="end"
+                    aria-label="edit"
+                  >
+                    <EditIcon />
+                  </IconButton>
+                </Link>
+              </ListItemSecondaryAction>
+            </ListItem>
+          ))
+        ) : (
+          <p data-test="no-note-yet">No notes yet.</p>
+        )}
       </List>
       {tasks.some(item => item.done === true) === true && <DeleteNotes selectedNotes={tasks} />}
     </div>
