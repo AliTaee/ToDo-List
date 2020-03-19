@@ -1,13 +1,10 @@
-/* eslint-env jest */
-
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { mount } from 'enzyme';
 import About from '../../pages/about';
 
-describe('React render testing', () => {
-  it('renders about page without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<About />, div);
-    ReactDOM.unmountComponentAtNode(div);
+describe('Test for about page', () => {
+  it('Should renders about page without crashing', () => {
+    const app = mount(<About />);
+    expect(app.find('[data-test="about-title"]').text()).toEqual('About Todo List');
   });
 });
