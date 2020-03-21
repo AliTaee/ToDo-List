@@ -16,7 +16,7 @@ describe('Test for Note list component', () => {
     expect(noteList.find('[data-test="no-note-yet"]')).toBeTruthy();
   });
 
-  it('Should having multiple notes on the list (showing note title, note date, and edit and delete buttons).', () => {
+  describe('Having multiple notes on the list (showing note title, note date, and edit and delete buttons).', () => {
     const noteList = mount(
       <NoteList
         store={store}
@@ -38,8 +38,17 @@ describe('Test for Note list component', () => {
         ]}
       />,
     );
-    expect(noteList.contains('[data-test="no-note-yet"]')).toBe(false);
-    expect(noteList.find('[data-test="note-item"]')).toHaveLength(2);
-    expect(noteList.find('[data-test="note-date"]')).toHaveLength(2);
+
+    it('Should not showing empty massege for note lists', () => {
+      expect(noteList.contains('[data-test="no-note-yet"]')).toBe(false);
+    });
+
+    it('Should have 2 note on the list', () => {
+      expect(noteList.find('[data-test="note-item"]')).toHaveLength(2);
+    });
+
+    it('Should have 2 note date on list', () => {
+      expect(noteList.find('[data-test="note-date"]')).toHaveLength(2);
+    });
   });
 });
