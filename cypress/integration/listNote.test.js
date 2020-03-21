@@ -22,7 +22,7 @@ describe('Test list Note', () => {
     // Create 4 sample note test
     for (let index = 1; index <= 5; index++) {
       it('Should Type a title', () => {
-        cy.get('[data-test=note-title]')
+        cy.get('[data-test=note-title-input]')
           .type(`${noteTitle}-${index}`)
           .should('have.value', `${noteTitle}-${index}`);
       });
@@ -62,7 +62,7 @@ describe('Test list Note', () => {
     const newTitle = 'Learning Vue';
 
     it('Should Clear a note title and type new title', () => {
-      cy.get('[data-test=note-title]')
+      cy.get('[data-test=note-title-input]')
         .clear()
         .type(newTitle)
         .should('have.value', newTitle);

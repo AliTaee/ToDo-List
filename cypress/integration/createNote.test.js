@@ -9,7 +9,7 @@ describe('Test Create Note', () => {
 
     it('Should Type a title', () => {
       cy.contains('Add Note');
-      cy.get('[data-test=note-title]')
+      cy.get('[data-test=note-title-input]')
         .type(noteTitle)
         .should('have.value', noteTitle);
     });
@@ -38,7 +38,7 @@ describe('Test Create Note', () => {
 
     it('Should Type a title', () => {
       cy.contains('Add Note');
-      cy.get('[data-test=note-title]')
+      cy.get('[data-test=note-title-input]')
         .type(noteTitle)
         .should('have.value', noteTitle);
     });
