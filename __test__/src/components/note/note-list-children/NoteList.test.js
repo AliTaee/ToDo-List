@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
-import NoteList from '../../../../../src/components/note/note-list-childs/NoteList';
+import NoteList from '../../../../../src/components/note/note-list-children/NoteList';
 
 const mockStore = configureStore();
 const initialState = {

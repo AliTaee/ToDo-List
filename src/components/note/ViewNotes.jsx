@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux';
 import { activeMain } from '../../redux/actions/actionMain';
 
 // Components
-import NoteList from './note-list-childs/NoteList';
+import NoteList from './note-list-children/NoteList';
 
 // Materail UI
 import Button from '@material-ui/core/Button';
