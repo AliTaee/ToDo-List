@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "e2e": "cypress open",
-    "unit": "jest",
+    "unit": "jest __test__/",
     "unit:coverage": "jest __test__/  --coverage",
     "unit:watch": "jest __test__/ --watch",
     "lint": "eslint .babelrc.js --no-ignore env-config.js pages/**/*.js pages/**/*.jsx src/**/*.jsx src/**/*.js static/**/*.js next.config.js pwabuilder-sw.js",

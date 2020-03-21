@@ -11,11 +11,6 @@ const initialState = {
 const store = mockStore(initialState);
 
 describe('Test for Note list component', () => {
-  it('Should renders note list without crashing', () => {
-    const noteList = mount(<NoteList store={store} tasks={[]} />);
-    expect(noteList.find('[data-test="note-list"]')).toBeTruthy();
-  });
-
   it('Should having no notes on the list (showing a proper message).', () => {
     const noteList = mount(<NoteList store={store} tasks={[]} />);
     expect(noteList.find('[data-test="no-note-yet"]')).toBeTruthy();
@@ -43,7 +38,8 @@ describe('Test for Note list component', () => {
         ]}
       />,
     );
-    expect(noteList.find('[data-test="no-note-yet"]')).toHaveLength(0);
+    expect(noteList.contains('[data-test="no-note-yet"]')).toBe(false);
     expect(noteList.find('[data-test="note-item"]')).toHaveLength(2);
+    expect(noteList.find('[data-test="note-date"]')).toHaveLength(2);
   });
 });

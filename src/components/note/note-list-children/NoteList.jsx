@@ -52,7 +52,7 @@ const NoteList = props => {
   return (
     <div className="list-tasks" data-test="note-list">
       <List className="note-list">
-        {tasks.length !== 0 ? (
+        {tasks.length ? (
           tasks.map(item => (
             <ListItem ContainerProps={{ 'data-test': 'note-item' }} key={item.id} dense button>
               <ListItemIcon>
