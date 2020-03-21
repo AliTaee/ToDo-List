@@ -70,30 +70,24 @@ const NoteList = props => {
                   onClick={() => handleActiveMain(item)}
                   className={item.done === true ? 'done' : ''}
                   id={item.id}
-                  primary={item.title}
+                  primary={<span data-test="note-title">{item.title}</span>}
                   secondary={<span data-test="note-date">{item.date}</span>}
                 />
               </Link>
               <ListItemSecondaryAction>
                 <IconButton
-                  data-test="note-delete"
                   onClick={() => handleDeleteNote(item.id)}
                   edge="end"
                   aria-label="delete"
                 >
-                  <DeleteIcon />
+                  <DeleteIcon data-test="note-delete" />
                 </IconButton>
                 <Link
                   href={`/edit?id=${item.id}`}
                   as={`${process.env.BACKEND_URL}/edit?id=${item.id}`}
                 >
-                  <IconButton
-                    data-test="note-edit"
-                    onClick={() => handleEditNote(item)}
-                    edge="end"
-                    aria-label="edit"
-                  >
-                    <EditIcon />
+                  <IconButton onClick={() => handleEditNote(item)} edge="end" aria-label="edit">
+                    <EditIcon data-test="note-edit" />
                   </IconButton>
                 </Link>
               </ListItemSecondaryAction>
