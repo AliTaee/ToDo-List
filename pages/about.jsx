@@ -10,7 +10,9 @@ function About() {
   return (
     <Layout>
       <div className="about">
-        <h2 className="h2">About Todo List</h2>
+        <h2 data-test="about-title" className="h2">
+          About Todo List
+        </h2>
         <p>This Todo list app create with:</p>
         <ul className="about__tech">
           <li>React</li>

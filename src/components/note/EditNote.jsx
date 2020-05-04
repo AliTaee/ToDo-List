@@ -88,7 +88,7 @@ const EditNote = props => {
           error={taskNameRequired === true}
           value={taskName}
           name="text"
-          inputProps={{ 'data-test': 'note-title' }}
+          inputProps={{ 'data-test': 'note-title-input' }}
         />
         <TextField
           multiline

@@ -32,7 +32,7 @@ describe('Test Edit Note', () => {
   describe('Test Creating a note with a title and a description.', () => {
     it('Should Type a title', () => {
       cy.contains('Add Note');
-      cy.get('[data-test=note-title]')
+      cy.get('[data-test=note-title-input]')
         .type(noteTitle)
         .should('have.value', noteTitle);
     });
@@ -66,7 +66,7 @@ describe('Test Edit Note', () => {
     });
 
     it('Should showing an editing note title must be in place thene type a new title', () => {
-      cy.get('[data-test=note-title]')
+      cy.get('[data-test=note-title-input]')
         .should('have.value', noteTitle)
         .clear()
         .type(newTitle);
@@ -96,7 +96,7 @@ describe('Test Edit Note', () => {
     });
 
     it('Should the new title must be in place', () => {
-      cy.get('[data-test=note-title]').should('have.value', newTitle);
+      cy.get('[data-test=note-title-input]').should('have.value', newTitle);
     });
 
     it('Should the new description must be in place', () => {
@@ -110,7 +110,7 @@ describe('Test Edit Note', () => {
     });
 
     it('Should Title must be empty', () => {
-      cy.get('[data-test=note-title]').should('have.value', '');
+      cy.get('[data-test=note-title-input]').should('have.value', '');
     });
 
     it('Should Description must be empty', () => {
@@ -124,7 +124,7 @@ describe('Test Edit Note', () => {
     });
 
     it('Should After reload page title and description must be in place', () => {
-      cy.get('[data-test=note-title]').should('have.value', newTitle);
+      cy.get('[data-test=note-title-input]').should('have.value', newTitle);
       cy.get('[data-test=note-desc]').should('have.value', newDesc);
     });
   });

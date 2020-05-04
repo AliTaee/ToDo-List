@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux';
 import { activeMain } from '../../redux/actions/actionMain';
 
 // Components
-import NoteList from './viewChildComponents/NoteList';
+import NoteList from './note-list-children/NoteList';
 
 // Materail UI
 import Button from '@material-ui/core/Button';
@@ -40,7 +40,7 @@ const View = props => {
           </Link>
         )}
       </div>
-      {tasks.length === 0 ? <p>No notes yet.</p> : <NoteList tasks={tasks} />}
+      <NoteList tasks={tasks} />
     </section>
   );
 };

@@ -63,7 +63,9 @@ const CreateNotes = props => {
 
   return (
     <section className="form">
-      <h2 className="h2">Add Note</h2>
+      <h2 data-test="create-note-title" className="h2">
+        Add Note
+      </h2>
       <form noValidate autoComplete="off">
         <TextField
           required
@@ -78,7 +80,7 @@ const CreateNotes = props => {
           error={taskNameRequired === true}
           value={taskName}
           name="text"
-          inputProps={{ 'data-test': 'note-title' }}
+          inputProps={{ 'data-test': 'note-title-input' }}
         />
         <TextField
           multiline
