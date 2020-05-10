@@ -1,10 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import About from '../../pages/about';
 
 describe('Test for about page', () => {
   it('Should renders about page with About Todo List title', () => {
-    const app = mount(<About />);
-    expect(app.find('[data-test="about-title"]').text()).toEqual('About Todo List');
+    render(<About />);
+    expect(screen.getByText(/about todo list/i)).toBeTruthy();
   });
 });
