@@ -1,5 +1,4 @@
 module.exports = {
-  setupFiles: ['<rootDir>/__test__/setup/setupTests.js'],
   testPathIgnorePatterns: [
     '<rootDir>/.next/',
     '<rootDir>/node_modules/',
