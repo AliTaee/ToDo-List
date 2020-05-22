@@ -16,6 +16,7 @@ Project is created with:
 - Node-sass
 - Material-UI
 - Cypress
+- Testing-library/react
 
 ## Build Setup
 
@@ -31,6 +32,8 @@ npm run lint
 
 # run unit tests
 npm run unit
+npm run unit:watch
+npm run unit:coverage
 
 # run e2e tests
 npm run e2e
