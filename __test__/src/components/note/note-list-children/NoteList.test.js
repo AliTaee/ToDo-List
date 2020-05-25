@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import '@testing-library/jest-dom/extend-expect';
+import { render, screen } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import NoteList from '../../../../../src/components/note/note-list-children/NoteList';
 
@@ -27,69 +28,49 @@ const tasks = [
   },
 ];
 
-describe('Test for Note list component', () => {
+describe('No notes on list.', () => {
   it('Should having no notes on the list (showing a proper message).', () => {
-    const noteList = mount(<NoteList store={store} tasks={[]} />);
-    expect(noteList.find('[data-test="no-note-yet"]')).toBeTruthy();
+    render(<NoteList store={store} tasks={[]} />);
+    expect(screen.getByText(/No notes yet./i)).toBeTruthy();
+  });
+});
+
+describe('Having multiple notes on the list.', () => {
+  render(<NoteList store={store} tasks={tasks} />);
+
+  it('Should not showing empty massege for note lists', () => {
+    expect(screen.queryByText(/No notes yet./i)).toBeNull();
   });
 
-  describe('Having multiple notes on the list (showing note title, note date, and edit and delete buttons).', () => {
-    const noteList = mount(<NoteList store={store} tasks={tasks} />);
+  it('Should have 2 note on the list', () => {
+    expect(screen.getAllByTestId('note-item')).toHaveLength(2);
+  });
 
-    it('Should not showing empty massege for note lists', () => {
-      expect(noteList.contains('[data-test="no-note-yet"]')).toBe(false);
-    });
+  it('Should have 2 note date on list', () => {
+    expect(screen.getAllByTestId('note-date')).toHaveLength(2);
+  });
 
-    it('Should have 2 note on the list', () => {
-      expect(noteList.find('[data-test="note-item"]')).toHaveLength(2);
-    });
+  it('Should have 2 note edit button on list', () => {
+    expect(screen.getAllByTestId('note-edit')).toHaveLength(2);
+  });
 
-    it('Should have 2 note date on list', () => {
-      expect(noteList.find('[data-test="note-date"]')).toHaveLength(2);
-    });
+  it('Should have 2 note delete button on list', () => {
+    expect(screen.getAllByTestId('note-edit')).toHaveLength(2);
+  });
 
-    it('Should have 2 note edit button on list', () => {
-      expect(noteList.find('svg[data-test="note-edit"]')).toHaveLength(2);
-    });
+  it('Should Note 1 have a e2e value', () => {
+    expect(screen.getByText(tasks[0].title).innerHTML).toEqual(tasks[0].title);
+  });
 
-    it('Should have 2 note delete button on list', () => {
-      expect(noteList.find('svg[data-test="note-delete"]')).toHaveLength(2);
-    });
+  it('Should Note 1 have a date 2020/03/05 value', () => {
+    expect(screen.getByText(tasks[0].date).innerHTML).toEqual(tasks[0].date);
+  });
 
-    it('Should Note 1 have a e2e value', () => {
-      expect(
-        noteList
-          .find('[data-test="note-title"]')
-          .at(0)
-          .text(),
-      ).toEqual(tasks[0].title);
-    });
+  it('Should Note 2 have a unit value', () => {
+    expect(screen.getByText(tasks[1].title).innerHTML).toEqual(tasks[1].title);
+  });
 
-    it('Should Note 1 have a date 2020/03/05 value', () => {
-      expect(
-        noteList
-          .find('[data-test="note-date"]')
-          .at(0)
-          .text(),
-      ).toEqual(tasks[0].date);
-    });
-
-    it('Should Note 2 have a unit value', () => {
-      expect(
-        noteList
-          .find('[data-test="note-title"]')
-          .at(1)
-          .text(),
-      ).toEqual(tasks[1].title);
-    });
-
-    it('Should Note 2 have a date 2020/03/04 value', () => {
-      expect(
-        noteList
-          .find('[data-test="note-date"]')
-          .at(1)
-          .text(),
-      ).toEqual(tasks[1].date);
-    });
+  it('Should Note 2 have a date 2020/03/04 value', () => {
+    expect(screen.getByText(tasks[1].date).innerHTML).toEqual(tasks[1].date);
   });
 });
