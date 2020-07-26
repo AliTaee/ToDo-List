@@ -48,6 +48,6 @@ describe('Having multiple notes on the list.', () => {
   });
 
   it('Should have 2 note delete button on list', () => {
-    expect(screen.getAllByTestId('note-edit')).toHaveLength(2);
+    expect(screen.getAllByTestId('note-delete')).toHaveLength(2);
   });
 });
