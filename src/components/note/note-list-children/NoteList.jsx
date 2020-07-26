@@ -79,15 +79,21 @@ const NoteList = props => {
                   onClick={() => handleDeleteNote(item.id)}
                   edge="end"
                   aria-label="delete"
+                  data-test="note-delete"
                 >
-                  <DeleteIcon data-test="note-delete" />
+                  <DeleteIcon />
                 </IconButton>
                 <Link
                   href={`/edit?id=${item.id}`}
                   as={`${process.env.BACKEND_URL}/edit?id=${item.id}`}
                 >
-                  <IconButton onClick={() => handleEditNote(item)} edge="end" aria-label="edit">
-                    <EditIcon data-test="note-edit" />
+                  <IconButton
+                    onClick={() => handleEditNote(item)}
+                    edge="end"
+                    aria-label="edit"
+                    data-test="note-edit"
+                  >
+                    <EditIcon />
                   </IconButton>
                 </Link>
               </ListItemSecondaryAction>

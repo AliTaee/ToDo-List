@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import NoteList from '../../../../../src/components/note/note-list-children/NoteList';
 
@@ -49,5 +49,19 @@ describe('Having multiple notes on the list.', () => {
 
   it('Should have 2 note delete button on list', () => {
     expect(screen.getAllByTestId('note-delete')).toHaveLength(2);
+  });
+
+  const deleteBtn = screen.getAllByTestId('note-delete')[0];
+  fireEvent.click(deleteBtn);
+
+  it('Should delete a note', () => {
+    expect(store.getActions()).toEqual([
+      {
+        type: 'DELETE_TASK',
+        payload: {
+          id: 'evRFE5i5',
+        },
+      },
+    ]);
   });
 });
