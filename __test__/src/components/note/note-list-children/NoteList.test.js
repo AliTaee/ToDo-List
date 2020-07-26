@@ -34,4 +34,20 @@ describe('Having multiple notes on the list.', () => {
   it('Should not showing empty massege for note lists', () => {
     expect(screen.queryByText(/No notes yet./gi)).toBeNull();
   });
+
+  it('Should have 2 note on the list', () => {
+    expect(screen.getAllByTestId('note-item')).toHaveLength(2);
+  });
+
+  it('Should have 2 note date on list', () => {
+    expect(screen.getAllByTestId('note-date')).toHaveLength(2);
+  });
+
+  it('Should have 2 note edit button on list', () => {
+    expect(screen.getAllByTestId('note-edit')).toHaveLength(2);
+  });
+
+  it('Should have 2 note delete button on list', () => {
+    expect(screen.getAllByTestId('note-edit')).toHaveLength(2);
+  });
 });
